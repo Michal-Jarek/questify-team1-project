@@ -1,4 +1,5 @@
 import LandingWelcome from "./LandingWelcome/LandingWelcome";
+import LandingBg from "./LandingBg/LandingBg";
 import { Container, Wrapper } from "./Landing.styled";
 import { useEffect } from "react";
 
@@ -11,7 +12,8 @@ const Landing = () => {
 			<Wrapper>
 				<Container>
 					<LandingWelcome />
-				</Container>
+                </Container>
+                <LandingBg/>
 			</Wrapper>
 	
 		</>
