@@ -1,8 +1,9 @@
+import "./App.css";
 // import { Router } from "../utils/router/Router";
 
 const App = () => (
-  <div>
-    <img  
+  <div className="App">
+    <img
       src="https://geek.justjoin.it/wp-content/uploads/2022/09/yoda.jpg"
       alt="funny yoda"
     />
