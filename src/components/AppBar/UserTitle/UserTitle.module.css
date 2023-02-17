@@ -1,3 +1,9 @@
+.userTitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .avatar {
 	display: flex;
 	align-items: center;
@@ -19,4 +25,13 @@
 	font-size: 17px;
 	line-height: 0.965;
 	font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+	.userName {
+		display: none;
+	}
+	.avatar {
+		margin-right: 0px;
+	}
 }

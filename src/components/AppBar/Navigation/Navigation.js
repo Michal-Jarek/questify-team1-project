@@ -13,13 +13,15 @@ export const Navigation = () => {
 				Questify
 			</NavLink>
 
-			<UserTitle />
-
-			<button className={css.btnTrophy} type='submit'>
-				<img src={trophy} alt='Trophy' border='0' />
-			</button>
-
-			<Logout />
+			<div className={css.userContainer}>
+				<UserTitle />
+			</div>
+			<div className={css.rightMenu}>
+				<button className={css.btnTrophy} type='submit'>
+					<img src={trophy} className={css.imgTrophy} alt='Trophy' border='0' />
+				</button>
+				<Logout />
+			</div>
 		</nav>
 	);
 };

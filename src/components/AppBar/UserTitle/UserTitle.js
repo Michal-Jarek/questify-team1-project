@@ -3,7 +3,7 @@ import css from './UserTitle.module.css';
 
 export const UserTitle = () => {
 	return (
-		<div>
+		<div className={css.userTitle}>
 			<div className={css.avatar}>
 				<p>J</p>
 			</div>

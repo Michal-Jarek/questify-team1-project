@@ -6,7 +6,7 @@ export const Logout = () => {
 	return (
 		<div>
 			<button className={css.btnLogout} type='button'>
-				<img src={logout} alt='Icon logout' border='0' />
+				<img className={css.imgLogout} src={logout} alt='Icon logout' border='0' />
 			</button>
 		</div>
 	);
