@@ -1,0 +1,10 @@
+.btnLogout {
+	background-color: transparent;
+	border: none;
+}
+
+@media screen and (max-width: 767px) {
+	.btnLogout {
+		padding: 0;
+	}
+}
