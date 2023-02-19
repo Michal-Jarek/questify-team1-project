@@ -1,12 +1,14 @@
 import React from 'react';
 import css from './Logout.module.css';
-import logout from '../../../assests/header/logout.svg';
+import icons from '../../../assests/icons/sprite.svg';
 
 export const Logout = () => {
 	return (
-		<div>
+		<div title='Logout'>
 			<button className={css.btnLogout} type='button'>
-				<img className={css.imgLogout} src={logout} alt='Icon logout' border='0' />
+				<svg width='30' height='30' className={css.svgLogout}>
+					<use xlinkHref={`${icons}#icon-logout`} />
+				</svg>
 			</button>
 		</div>
 	);

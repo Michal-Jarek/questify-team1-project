@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Logout } from '../Logout/Logout';
+import icons from '../../../assests/icons/sprite.svg';
 import css from './Navigation.module.css';
 
-import trophy from '../../../assests/header/challengeIcon.svg';
 import { UserTitle } from '../UserTitle/UserTitle';
 
 export const Navigation = () => {
@@ -18,7 +18,9 @@ export const Navigation = () => {
 			</div>
 			<div className={css.rightMenu}>
 				<button className={css.btnTrophy} type='submit'>
-					<img src={trophy} className={css.imgTrophy} alt='Trophy' border='0' />
+					<svg width='46' height='46' className={css.svgTrophy}>
+						<use xlinkHref={`${icons}#challenge-icon`} />
+					</svg>
 				</button>
 				<Logout />
 			</div>
