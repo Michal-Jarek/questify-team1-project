@@ -1,0 +1,8 @@
+.cardList{
+   display: grid;
+   list-style: none;
+
+}
+.cardsListItem{
+   margin: 0 auto ;
+}
