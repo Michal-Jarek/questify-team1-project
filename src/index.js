@@ -20,7 +20,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={`/${pjson}/#`}>
+      <BrowserRouter basename={`/${pjson}`}>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/landing" element={<LandingPage />} />
