@@ -1,16 +1,28 @@
 {
   "files": {
     "main.css": "/questify-team1-project/static/css/main.dc564e22.css",
-    "main.js": "/questify-team1-project/static/js/main.ed1350a6.js",
+    "main.js": "/questify-team1-project/static/js/main.ec9ea8b4.js",
+    "static/js/808.44fcc93c.chunk.js": "/questify-team1-project/static/js/808.44fcc93c.chunk.js",
+    "static/js/9.c8dcb4f1.chunk.js": "/questify-team1-project/static/js/9.c8dcb4f1.chunk.js",
+    "static/media/up.svg": "/questify-team1-project/static/media/up.06796166e642951c786d9864758ee871.svg",
+    "static/media/down.svg": "/questify-team1-project/static/media/down.6f76ddb8256e351cf72203e82d197444.svg",
+    "static/media/downHorizontal.svg": "/questify-team1-project/static/media/downHorizontal.4f5b616f945d9f68e182a3a02789ce96.svg",
+    "static/media/downVertical.svg": "/questify-team1-project/static/media/downVertical.94e9ab4b8a81e4eba84a365df80a3071.svg",
+    "static/media/upHorizontal.svg": "/questify-team1-project/static/media/upHorizontal.0f9a19e184860459b10c988ea5410d20.svg",
+    "static/media/upVertical.svg": "/questify-team1-project/static/media/upVertical.02adbefebd25e0e976dbbde75fb179fe.svg",
+    "static/media/greyRectangle.svg": "/questify-team1-project/static/media/greyRectangle.8eec9b3a62a677937aca090caf2276c9.svg",
     "static/media/sprite.svg": "/questify-team1-project/static/media/sprite.db82253f127da93bb879c9b582560e52.svg",
     "static/media/trophy.svg": "/questify-team1-project/static/media/trophy.f0023537a24242872494662c6cedd24d.svg",
     "static/media/star.svg": "/questify-team1-project/static/media/star.313f4f139d1ecd2d7d8a9b6ace5f826d.svg",
     "index.html": "/questify-team1-project/index.html",
+    "static/media/blueRectangle.svg": "/questify-team1-project/static/media/blueRectangle.b31dc7d31cfc73d04d6cfdaebf85f465.svg",
     "main.dc564e22.css.map": "/questify-team1-project/static/css/main.dc564e22.css.map",
-    "main.ed1350a6.js.map": "/questify-team1-project/static/js/main.ed1350a6.js.map"
+    "main.ec9ea8b4.js.map": "/questify-team1-project/static/js/main.ec9ea8b4.js.map",
+    "808.44fcc93c.chunk.js.map": "/questify-team1-project/static/js/808.44fcc93c.chunk.js.map",
+    "9.c8dcb4f1.chunk.js.map": "/questify-team1-project/static/js/9.c8dcb4f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc564e22.css",
-    "static/js/main.ed1350a6.js"
+    "static/js/main.ec9ea8b4.js"
   ]
 }
