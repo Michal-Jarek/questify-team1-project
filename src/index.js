@@ -11,14 +11,14 @@ import App from "./components/App.js";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 const LandingPage = React.lazy(() => import("./pages/LandingPage/LandingPage"));
 
-const pjson = require("../package.json").name;
+// const pjson = require("../package.json").name;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={`/${pjson}`}>
+      <BrowserRouter >
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/landing" element={<LandingPage />} />
@@ -28,3 +28,4 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+// basename={`/${pjson}`}
