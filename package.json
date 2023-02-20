@@ -2,7 +2,7 @@
   "name": "questify-team1-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/questify-team1-project/#",
+  "homepage": "https://michal-jarek.github.io/questify-team1-project/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
