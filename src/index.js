@@ -9,10 +9,10 @@ import { store } from "./redux/store.js";
 
 import "./index.scss";
 import App from "./components/App.js";
-import NotFound from "./pages/NotFound/NotFound.jsx";
-const LandingPage = React.lazy(() =>
-  import("./pages/LandingPage/LandingPage")
-);
+// import NotFound from "./pages/NotFound/NotFound.jsx";
+// const LandingPage = React.lazy(() =>
+//   import("./pages/LandingPage/LandingPage")
+// );
 
 const pjson = require("../package.json").name;
 
@@ -24,8 +24,8 @@ root.render(
       <BrowserRouter basename={`/${pjson}`}>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/landing" element={<LandingPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/landing" element={<App />} />
+          <Route path="*" element={<App />} />
         </Routes>
       </BrowserRouter>
     </Provider>
