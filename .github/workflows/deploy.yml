@@ -2,7 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [bugFix-baserURL]
+    branches: [bugFix-baseURL]
 
 jobs:
   build-and-deploy:
