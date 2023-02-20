@@ -18,11 +18,11 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={`/${pjson}/`}>
+      <BrowserRouter basename={`/${pjson}`}>
         <Routes>
           <Route path="/">
             <Route index element={<App />} />
-            <Route path="landing" element={<LandingPage />} />
+            <Route path="/landing" element={<LandingPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
