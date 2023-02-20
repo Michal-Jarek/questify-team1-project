@@ -21,7 +21,7 @@ root.render(
       <BrowserRouter basename={`/${pjson}`}>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="landing" element={<LandingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
