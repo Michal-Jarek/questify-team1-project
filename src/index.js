@@ -9,7 +9,9 @@ import { store, persistor } from "./redux/store";
 import "./index.scss";
 import App from "./components/App.js";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-const LandingPage = React.lazy(() => import("./pages/LandingPage/LandingPage"));
+const LandingPage = React.lazy(() =>
+  import("./pages/LandingPage/LandingPage.jsx")
+);
 
 const pjson = require("../package.json").name;
 
