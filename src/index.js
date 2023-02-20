@@ -20,10 +20,9 @@ root.render(
       <PersistGate loading={null} persistor={persistor}></PersistGate>
       <BrowserRouter basename={`/${pjson}`}>
         <Routes>
-          <Route path="/" element={<App />}>
-            <Route path="/landing" element={<LandingPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
+          <Route path="/" element={<App />}/>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/landing" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>
