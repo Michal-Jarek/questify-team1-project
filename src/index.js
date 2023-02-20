@@ -18,7 +18,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={commonPath}>
+      <BrowserRouter basename={commonPath + "/"}>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/landing" element={<LandingPage />} />
