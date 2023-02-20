@@ -4,13 +4,13 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { store, persistor } from "./redux/store";
+import { store, persistor } from "./redux/store.js";
 
 import "./index.scss";
 import App from "./components/App.js";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 const LandingPage = React.lazy(() =>
-  import("./pages/LandingPage/LandingPage.jsx")
+  import("./pages/LandingPage/LandingPage")
 );
 
 const pjson = require("../package.json").name;
@@ -20,15 +20,14 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={`/${pjson}`}>
+      <BrowserRouter basename={`/${pjson}/#`}>
         <Routes>
-          <Route path="/">
-            <Route index element={<App />} />
-            <Route path="/landing" element={<LandingPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
+          <Route path="/" element={<App />} />
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
+
