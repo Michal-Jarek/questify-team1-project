@@ -13,11 +13,9 @@ export const Logout = () => {
 	const logoutUser = () => {
 		console.log('Logout');
 		const token = Cookies.get('token');
-		if (token === undefined) {
-			return redirect('landing');
-		}
 		dispatch(deleteToken(token));
 		Notiflix.Notify.success('Logged out of Questify');
+		return redirect('/');
 	};
 
 	return (
