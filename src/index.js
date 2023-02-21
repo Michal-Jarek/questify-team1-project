@@ -13,13 +13,14 @@ const LandingPage = React.lazy(() => import("./pages/LandingPage/LandingPage"));
 
 const commonPath = process.env.PUBLIC_URL;
 console.log(commonPath);
+let projectName = require("../package.json").name;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename={commonPath }>
+      <BrowserRouter basename={projectName}>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/landing" element={<LandingPage />} />
