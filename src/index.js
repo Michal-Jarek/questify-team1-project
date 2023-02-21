@@ -11,7 +11,7 @@ import App from "./components/App.js";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 const LandingPage = React.lazy(() => import("./pages/LandingPage/LandingPage"));
 
-const commonPath = process.env.PUBLIC_URL;
+const commonPath = process.env.PUBLIC_URL +"/";
 console.log(commonPath);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
