@@ -5,6 +5,7 @@ import { ReactComponent as TrophyIcon } from './images/trophy.svg';
 // import { ReactComponent as QuestAwardIcon } from './images/award.svg';
 // import { ReactComponent as ArrowIcon } from './images/arrow,svg';
 import style from './Card.module.css';
+import DeleteModal from '../DeleteModal/DeleteModal';
 
 export const Card = ({
     isActive,
@@ -47,6 +48,7 @@ export const Card = ({
          {isChallenge && <h3 className={style.isChallenge}>Challenge</h3>}
          <h2 className={isChallenge ? style.chalengeName : style.taskName}>{title}</h2>
          <div className={style[group]}>{group}</div>
+         <DeleteModal />
       </div>
     );
 };
