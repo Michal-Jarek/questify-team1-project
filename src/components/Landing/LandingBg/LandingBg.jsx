@@ -10,6 +10,7 @@ import TabletVerUp from "../../../assests/landing/tablet/upVertical.svg";
 import DesktopUp from "../../../assests/landing/desktop/up.svg";
 import DesktopDown from "../../../assests/landing/desktop/down.svg";
 
+
 function LandingBg(props) {
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -23,11 +24,11 @@ function LandingBg(props) {
 	} else if (windowWidth >= 768 && windowWidth < 1280 && windowHeight >= 760) {
 		image1 = TabletHorUp;
 		image2 = TabletHorDown;
+
 	} else if (windowWidth >= 1280) {
 		image1 = DesktopUp;
 		image2 = DesktopDown;
 	}
-
 	useEffect(() => {
 		const handleWindowResize = () => {
 			setWindowWidth(window.innerWidth);
