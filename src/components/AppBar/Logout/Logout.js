@@ -4,17 +4,20 @@ import icons from '../../../assests/icons/sprite.svg';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { deleteToken } from '../../../redux/token/tokenSlice';
+import { redirect } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
 export const Logout = () => {
 	const dispatch = useDispatch();
 
 	const logoutUser = () => {
-		console.log('wylogowuję się');
+		console.log('Logout');
 		const token = Cookies.get('token');
 		if (token === undefined) {
-			return;
+			return redirect('landing');
 		}
 		dispatch(deleteToken(token));
+		Notiflix.Notify.success('Logged out of Questify');
 	};
 
 	return (
