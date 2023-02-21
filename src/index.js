@@ -23,7 +23,7 @@ root.render(
       <BrowserRouter basename={projectName}>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/landing" element={<LandingPage />} />
+          <Route path="landing" element={<LandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
