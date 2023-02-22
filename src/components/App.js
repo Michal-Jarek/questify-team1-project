@@ -1,7 +1,9 @@
-import "./App.css";
-import { AppBar } from "./AppBar/AppBar.js";
-import { QuestList } from "./QuestList/QuestList.jsx";
-import NewTaskBtn from "./NewTaskBtn/NewTaskBtn.js";
+import './App.css';
+import { AppBar } from './AppBar/AppBar';
+import { QuestList } from './QuestList/QuestList';
+// import { CardGroup } from './CardGroup/CardGroup';
+import NewTaskBtn from './NewTaskBtn/NewTaskBtn';
+
 
 // import { Router } from "../utils/router/Router";
 
