@@ -1,5 +1,6 @@
+import { useDeleteCardMutation } from "redux/auth/authOperations";
 import { DeleteModalWrapper, DeleteMenu } from "./DeleteModal.styled";
-import { useDeleteCardMutation } from "../../redux/questifyAPI";
+
 
 const DeleteModal = ({ cardType, cardId, isOpen, func }) => {
   const [deleteCard] = useDeleteCardMutation();
