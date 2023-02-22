@@ -4,12 +4,15 @@ import Cookies from "js-cookie";
 const initialState = Cookies.get("token") || "";
 
 const tokenSlice = createSlice({
-    name: "token",
-    initialState,
-    reducers: {
-        addToken: (state, { payload }) => payload,
-        deleteToken: (state, { payload }) => "",
+  name: "token",
+  initialState,
+  reducers: {
+    addToken: (state, { payload }) => payload,
+    deleteToken: (state, { payload }) => {
+      Cookies.remove("token");
+      return "";
     },
+  },
 });
 
 export const { addToken, deleteToken } = tokenSlice.actions;
