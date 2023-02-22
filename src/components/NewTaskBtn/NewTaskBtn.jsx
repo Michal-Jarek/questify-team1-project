@@ -1,9 +1,12 @@
 import React from "react";
-import scss from "./NewTaskBtn.module.scss"
+import { Div } from "./NewTaskBtn.styled";
+import { useSelector } from "react-redux";
 
-export const NewTaskBtn = ({ onClick }) => { 
-    return (
-    <button onClick={onClick} className={scss.button}>
+const NewTaskBtn = ({ onClick }) => {
+  const isActiveChallenge = useSelector(state => state.user.challengeFIlter)
+  return (
+    <Div isActiveChallenge={isActiveChallenge}>
+      <button onClick={onClick}>
         <svg
           width="16"
           height="16"
@@ -17,7 +20,8 @@ export const NewTaskBtn = ({ onClick }) => {
           />
         </svg>
       </button>
-    )
+    </Div>
+  );
 };
 
 export default NewTaskBtn;

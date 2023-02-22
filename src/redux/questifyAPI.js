@@ -37,6 +37,13 @@ export const questifyApi = createApi({
             }),
             invalidatesTags: ["Auth"],
         }),
+        deleteCard: builder.mutation({
+            query: (id) => ({
+              url: `/card/${id}`,
+              method: "DELETE",
+            }),
+            invalidatesTags: ["Card"],
+          }),
         
     }),
 });
@@ -45,4 +52,5 @@ export const {
     useRegisterMutation,
     useLoginMutation,
     useLogoutMutation,
+    useDeleteCardMutation,
 } = questifyApi;
