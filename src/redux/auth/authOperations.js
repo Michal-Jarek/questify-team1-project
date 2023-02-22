@@ -12,7 +12,7 @@ export const questifyApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Auth"],
+  tagTypes: ["Auth", "Card"],
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (newUserData) => ({
@@ -37,6 +37,18 @@ export const questifyApi = createApi({
       }),
       invalidatesTags: ["Auth"],
     }),
+    getAllCards: builder.query({
+      query: () => '/card',
+      providesTags: ['Auth', 'Card']
+    }),
+    createCard: builder.mutation({
+      query: (cardData) => ({
+        url: '/card',
+        method: 'POST',
+        body: cardData,
+      }),
+      invalidatesTags: ['Auth', 'Card'],
+    }),
     deleteCard: builder.mutation({
       query: (id) => ({
         url: `/card/${id}`,
@@ -51,5 +63,7 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useLogoutMutation,
+  useGetAllCardsMutation,
+  useCreateCardMutation,
   useDeleteCardMutation,
 } = questifyApi;
