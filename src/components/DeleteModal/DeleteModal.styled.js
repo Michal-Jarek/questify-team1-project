@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const CardDeleteWrapper = styled.div`
-  display: none;
+export const DeleteModalWrapper = styled.div`
+display: ${(props) =>
+  props.isOpen ? "flex" : "none"};
   align-items: center;
   justify-content: center;
   position: absolute;
