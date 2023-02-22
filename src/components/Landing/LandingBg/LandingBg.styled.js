@@ -9,6 +9,9 @@ export const ImgUp = styled.img`
 		top: 0;
 		right: 0;
 	}
+	@media screen and (min-width: 1280px) and (max-height: 759px) {
+		display: none;
+	}
 `;
 
 export const ImgDown = styled.img`
@@ -16,6 +19,10 @@ export const ImgDown = styled.img`
 	bottom: 0;
 	z-index: -1;
 	@media screen and (min-width: 768px) and (min-height: 760px) {
+		bottom: 0;
+		right: 0;
+	}
+	@media screen and (min-width: 1280px) and (max-height: 759px) {
 		bottom: 0;
 		right: 0;
 	}

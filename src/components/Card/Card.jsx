@@ -18,6 +18,7 @@ import {
   CardContainer,
   TitleDataWrapper
 } from "./Card.styled";
+import DeleteModal from '../DeleteModal/DeleteModal';
 
 export const Card = ({
   id,
@@ -94,6 +95,7 @@ export const Card = ({
           </ContinueBox>
         </FlippedCard>
       </ReactCardFlip>
+      <DeleteModal />
     </CardContainer>
   );
 };
