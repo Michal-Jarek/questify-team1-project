@@ -8,10 +8,10 @@ import {
   Paragraph,
 } from "./LandingModal.styled";
 import { IoMdClose } from "react-icons/io";
-import { useRegisterMutation } from "../../../redux/questifyAPI";
+import { useRegisterMutation } from "../../../redux/auth/authOperations";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
-import validationSchema from "../../../redux/schemas/formValidation.js";
+import validationSchema from "../../../utils/schemas/formValidation.js";
 
 const LandingModal = ({ setIsOpen }) => {
   const [register] = useRegisterMutation();
