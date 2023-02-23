@@ -1,12 +1,14 @@
 import { AppBar } from 'components/AppBar/AppBar';
 import NewTaskBtn from 'components/NewTaskBtn/NewTaskBtn';
-import { QuestList } from '../../components/QuestList/QuestList';
+// import { QuestList } from '../../components/QuestList/QuestList';
+import { CardGroupContainer } from 'components/CardGroup/CardGroupContainer';
 
 const Dashboard = () => {
     return (
     <>
-        <AppBar/>
-        <QuestList />
+        <AppBar />
+        <CardGroupContainer />
+        {/* <QuestList /> */}
         <NewTaskBtn />
     </>
     );
