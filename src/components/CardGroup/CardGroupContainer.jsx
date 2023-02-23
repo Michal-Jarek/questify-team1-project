@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { CardGroup } from './CardGroup';
 // import { useGetAllCardsQuery } from 'redux/auth/authOperations';
 
 export const CardGroupContainer = () => {
 
-    const challengeState = useSelector((state) => state.user.challengeFIlter);
+    // const challengeState = useSelector((state) => state.user.challengeFIlter);
 
     const cards = [
         { id: 1, title: 'Test Name 1', difficulty: 'Easy', category: 'work', type: 'Task', date: '2023-02-24', time: '14:30' },
@@ -20,27 +20,19 @@ export const CardGroupContainer = () => {
 
     return (
         <>
-            {!challengeState ? (
-                <>
-                    <CardGroup
-                        cards={cards}
-                        groupName='past' />
-                    <CardGroup
-                        cards={cards}
-                        groupName='today' />
-                    <CardGroup
-                        cards={cards}
-                        groupName='tomorrow' />
-                    <CardGroup
-                        cards={cards}
-                        groupName='upcoming' />
-                </>
-            ) : (
-                <CardGroup
-                    cards={cards}
-                    groupName='challenge'
-                />
-            )}
+            <CardGroup
+                cards={cards}
+                groupName='past' />
+            <CardGroup
+                cards={cards}
+                groupName='today' />
+            <CardGroup
+                cards={cards}
+                groupName='tomorrow' />
+            <CardGroup
+                cards={cards}
+                groupName='upcoming' />
+        
         </>
     );
 };
