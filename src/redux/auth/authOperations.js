@@ -63,7 +63,7 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useLogoutMutation,
-  useGetAllCardsMutation,
+  useGetAllCardsQuery,
   useCreateCardMutation,
   useDeleteCardMutation,
 } = questifyApi;

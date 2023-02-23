@@ -1,33 +1,17 @@
+import React from 'react';
 import { Card } from '../Card/Card';
 import { List } from './QuestList.styled';
 
-export const QuestList = () => {
+export const QuestList = ({ groupName, sortByGroup }) => {
+    
     return (
         <List>
+            {sortByGroup(groupName).map((card) => (
                 <Card
-                    title={'Test Name'}
-                    difficulty={'Easy'}
-                    category={'work'}
-                    type={'Task'}
-                    date={'2023-02-22'}
-                    time={'14:30'}
+                    key={card.id}
+                    {...card}
                 />
-                <Card
-                    title={'Test Name'}
-                    difficulty={'Easy'}
-                    category={'stuff'}
-                    type={'Task'}
-                    date={'2023-02-24'}
-                    time={'14:30'}
-                />
-                <Card
-                    title={'Test Name'}
-                    difficulty={'Easy'}
-                    category={'health'}
-                    type={'Challenge'}
-                    date={'2023-02-24'}
-                    time={'14:30'}
-                />
-            </List>
+            ))}
+        </List>
     );
 };
