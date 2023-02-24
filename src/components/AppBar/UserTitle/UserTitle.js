@@ -1,11 +1,14 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useAuth } from 'utils/hooks/useAuth';
 import css from './UserTitle.module.css';
 
 export const UserTitle = () => {
-	let displayedName = 'Anonymous'
-	// const user = useSelector((state) => state.users.email)
-	//TODO: try to load username from token/database
+	let displayedName = 'Anonymous';
+	const { user } = useAuth();
+	if (user?.email) {
+		displayedName = user.email.slice(0, user.email.indexOf('@'));
+		console.log(user);
+	}
 	return (
 		<div className={css.userTitle}>
 			<div className={css.avatar}>
