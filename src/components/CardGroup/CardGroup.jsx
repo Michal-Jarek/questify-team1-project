@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { QuestList } from '../QuestList/QuestList';
 // import { ReactComponent as ListUp } from './images/btnUp.svg';
-import { ReactComponent as ListDown } from './images/btnDown.svg';
+// import { ReactComponent as ListDown } from './images/btnDown.svg';
 import { todayDateInMs, tomorrowDateInMs } from '../Card/helperFunctions/dateAndTime/time';
 import { Div, GroupTitle } from './CardGroup.styled';
 
@@ -43,10 +43,10 @@ export const CardGroup = ({ cards, groupName }) => {
             <GroupTitle>
                 {sortByGroup(groupName).length > 0 &&
                     <p>{groupName}
-                        <>
+                        {/* <>
                             <ListDown />
-                            {/* <span></span> */}
-                        </>
+                            <span></span>
+                        </> */}
                     </p>}
             </GroupTitle>
             <QuestList
