@@ -11,7 +11,7 @@ export const CardGroupContainer = () => {
         { id: 1, title: 'Test Name 1', difficulty: 'Easy', category: 'work', type: 'Task', date: '2023-02-24', time: '14:30' },
         { id: 2, title: 'Test Name 2', difficulty: 'Normal', category: 'leisure', type: 'Task', date: '2023-02-25', time: '14:30' },
         { id: 3, title: 'Test Name 3', difficulty: 'Hard', category: 'health', type: 'Challenge', date: '2023-02-23', time: '12:31' },
-        { id: 4, title: 'Test Name 4', difficulty: 'Haed', category: 'stuff', type: 'Challenge', date: '2023-02-22', time: '14:30'},
+        { id: 4, title: 'Test Name 4', difficulty: 'Easy', category: 'stuff', type: 'Task', date: '2023-02-22', time: '14:30'},
     ];
 
     // const {

@@ -45,7 +45,7 @@ export const CardGroup = ({ cards, groupName }) => {
                     <p>{groupName}
                         <>
                             <ListDown />
-                            <span></span>
+                            {/* <span></span> */}
                         </>
                     </p>}
             </GroupTitle>
