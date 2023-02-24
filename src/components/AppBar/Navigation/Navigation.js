@@ -1,29 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Logout } from '../Logout/Logout';
 import icons from '../../../assests/icons/sprite.svg';
-import css from './Navigation.module.css';
-
+import { Nav, Logo, RightMenu, BtnTrophy, SvgTrophy, UserContainer } from './Navigation.styled';
 import { UserTitle } from '../UserTitle/UserTitle';
 
 export const Navigation = () => {
 	return (
-		<nav className={css.header}>
-			<NavLink className={css.logo} to='/'>
-				Questify
-			</NavLink>
-
-			<div className={css.userContainer}>
+		<Nav>
+			<Logo to='/'>Questify</Logo>
+			<UserContainer>
 				<UserTitle />
-			</div>
-			<div className={css.rightMenu}>
-				<button className={css.btnTrophy} type='submit'>
-					<svg width='46' height='46' className={css.svgTrophy}>
+			</UserContainer>
+			<RightMenu>
+				<BtnTrophy type='submit'>
+					<SvgTrophy width='46' height='46'>
 						<use xlinkHref={`${icons}#challenge-icon`} />
-					</svg>
-				</button>
+					</SvgTrophy>
+				</BtnTrophy>
 				<Logout />
-			</div>
-		</nav>
+			</RightMenu>
+		</Nav>
 	);
 };
