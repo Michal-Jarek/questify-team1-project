@@ -1,10 +1,10 @@
 import { Navigation } from './Navigation/Navigation';
-import css from './AppBar.module.css';
+import { Header } from './AppBar.styled';
 
 export const AppBar = () => {
 	return (
-		<header className={css.header}>
+		<Header>
 			<Navigation></Navigation>
-		</header>
+		</Header>
 	);
 };
