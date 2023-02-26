@@ -36,6 +36,8 @@ export const CardEdition = ({
         anchorCategory,
         selectDifficulty,
         selectCategory,
+        isDifficultyMenuOpen,
+        isCategoryMenuOpen,
         openDifficultyMenu,
         openCategoryMenu,
         selectedDifficulty,
@@ -92,7 +94,7 @@ export const CardEdition = ({
             <SelectionMenu
                 dataType={'difficulty'}
                 anchorEl={anchorDifficulty}
-                isOpen={openDifficultyMenu}
+                isOpen={isDifficultyMenuOpen}
                 menuItemData={difficulty}
                 onClose={selectDifficulty}
                 selectedData={selectDifficulty}
@@ -117,7 +119,7 @@ export const CardEdition = ({
             <SelectionMenu
                 dataType={'category'}
                 anchorEl={anchorCategory}
-                isOpen={openCategoryMenu}
+                isOpen={isCategoryMenuOpen}
                 menuItemData={category}
                 onClose={selectCategory}
                 selectedData={selectedCategory}

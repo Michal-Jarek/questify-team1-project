@@ -9,13 +9,9 @@ export const useEditOptions = (difficulty = 'Normal', category = 'Stuff') => {
     const isDifficultyMenuOpen = Boolean(anchorDifficulty);
     const isCategoryMenuOpen = Boolean(anchorCategory);
 
-    const openDifficultyMenu = (e) => {
-        setAnchorDifficulty(e.currentTarget);
-    };
-
-    const openCategoryMenu = (e) => {
-        setAnchorCategory(e.currentTarget);
-    };
+    const openDifficultyMenu = (e) => setAnchorDifficulty(e.currentTarget);
+        
+    const openCategoryMenu = (e) => setAnchorCategory(e.currentTarget);
 
     const selectDifficulty = (e) => {
         e.currentTarget.innerText === ''
