@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import { convertDayDisplay } from './helperFunctions/dateAndTime/dayConverter';
 import { ReactComponent as FireIcon } from './images/fire.svg';
 import { ReactComponent as StarIcon } from './images/star.svg';
 import { ReactComponent as TrophyIcon } from './images/trophy.svg';
 import { ReactComponent as QuestAwardIcon } from './images/award.svg';
 import { ReactComponent as ChallengeAwardIcon } from './images/challenge-award.svg';
 import { ReactComponent as ArrowIcon } from './images/arrow.svg';
+import { CardEdition } from 'components/CardEdition/CardEdition';
+import DeleteModal from '../DeleteModal/DeleteModal';
+import { useCompleteCardMutation } from 'redux/auth/authOperations';
+import { useTimeout } from './helperFunctions/dateAndTime/timeout';
+import { convertDayDisplay } from './helperFunctions/dateAndTime/dayConverter';
 import {
   CardItem,
   CardType,
@@ -17,21 +21,27 @@ import {
   ContinueBox,
   CardContainer,
   TitleDataWrapper
-} from "./Card.styled";
-import DeleteModal from '../DeleteModal/DeleteModal';
+} from './Card.styled';
 
 export const Card = ({
-  id,
+  _id: id,
   title,
   difficulty,
   category,
   date,
   time,
   type,
-  status,
+  status, 
 }) => {
-
+  const [completeCard] = useCompleteCardMutation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen)
+
+  const editOpen = () => setIsEditModalOpen(true);
+  const editClose = () => setIsEditModalOpen(false);
 
   const toggleIsFlipped = () => {
     if (status === "Complete") {
@@ -41,8 +51,10 @@ export const Card = ({
   };
 
   const convertedDate = convertDayDisplay(date, type);
+  const questTime = new Date(`${date}T${time}`).getTime();
+  const timeout = useTimeout(questTime);
 
-  const isChallenge = (type) => type === "Challenge";
+  const isChallenge = (type) => type === 'Challenge';
   const typeIcon = isChallenge(type) ? (
     <TrophyIcon onClick={toggleIsFlipped} />
   ) : (
@@ -59,27 +71,32 @@ export const Card = ({
       return `${title.slice(0, 17)}...`;
     } else if (undefined) {
       return console.log("ERROR")
-    } 
-
+    };
     return title;
   })();
 
   return (
     <CardContainer cardType={type}>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+      <ReactCardFlip
+        isFlipped={isFlipped}
+        flipDirection="horizontal"
+      >
         <CardItem cardType={type}>
-          <DifficultyBar cardType={type} difficulty={difficulty}>
+          <DifficultyBar
+            cardType={type}
+            difficulty={difficulty}
+          >
             <p>{difficulty}</p>
             {typeIcon}
           </DifficultyBar>
           <TitleDataWrapper cardType={type}>
             {isChallenge(type) && <CardType>{type}</CardType>}
-            <h3>{title}</h3>
+            <h3 onClick={editOpen}>{title}</h3>
             <DatetimeBar>
               <p>
                 <span>{convertedDate}</span>, <span>{time}</span>
               </p>
-            <FireIcon />
+              {timeout && <FireIcon />}
             </DatetimeBar>
           </TitleDataWrapper>
           <Category category={category}>{category}</Category>
@@ -89,13 +106,31 @@ export const Card = ({
             COMPLETED: <span onClick={toggleIsFlipped}>{shortenedTitle}</span>
           </p>
           {awardIcon}
-          <ContinueBox>
+          <ContinueBox onClick={toggleModal}>
             <p>Continue</p>
             <ArrowIcon />
           </ContinueBox>
+          <DeleteModal
+            isOpen={isModalOpen}
+            modalContent='Are you sure to mark card as done?'
+            nameOfConfirm='Yes'
+            cancelAction={toggleModal}
+            confirmAction={() => completeCard(id)}
+          />
         </FlippedCard>
       </ReactCardFlip>
-      <DeleteModal />
+      {isEditModalOpen && (
+        <CardEdition
+          isEdited={isEditModalOpen}
+          cardId={id}
+          cardType={type}
+          cardChallenge={type}
+          cardDifficulty={difficulty}
+          cardTitle={title}
+          cardTime={questTime}
+          onCancel={editClose}
+        />
+      )}
     </CardContainer>
   );
 };

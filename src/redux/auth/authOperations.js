@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://questify-backend.goit.global", //adres serwera z  backendem
+    baseUrl: "https://stirring-pavlova-0c5052.netlify.app", //adres serwera z  backendem https://questify-backend.goit.global
     prepareHeaders: (headers, { getState }) => {
       const token = getState().token;
       if (token) {
@@ -52,17 +52,24 @@ export const questifyApi = createApi({
     editCard: builder.mutation({
       query: (cardData) => ({
         url: `/card/${cardData.id}`,
-        method: "PATCH",
+        method: 'PATCH',
         body: cardData.body,
       }),
       invalidatesTags: ['Auth', 'Card'],
     }),
-    deleteCard: builder.mutation({
-      query: (id) => ({
-        url: `/card/${id}`,
-        method: "DELETE",
+    completeCard: builder.mutation({
+      query: (cardId) => ({
+        url: `/card/${cardId}/complete`,
+        method: 'PATCH',
       }),
-      invalidatesTags: ["Card"],
+      invalidatesTags: ['Auth', 'Card'],
+    }),
+    deleteCard: builder.mutation({
+      query: (cardId) => ({
+        url: `/card/${cardId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Card'],
     }),
   }),
 });
@@ -74,5 +81,6 @@ export const {
   useGetAllCardsQuery,
   useCreateCardMutation,
   useEditCardMutation,
+  useCompleteCardMutation,
   useDeleteCardMutation,
 } = questifyApi;

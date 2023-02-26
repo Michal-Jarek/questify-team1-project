@@ -85,6 +85,7 @@ export const DifficultyBar = styled.div`
     align-items: center;
     font-size: 16px;
     color: #b9c3c8;
+    cursor: pointer;
     &::before {
       display: block;
       width: 10px;
@@ -105,6 +106,16 @@ export const DifficultyBar = styled.div`
           ? "drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25))"
           : "drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25))"};
     }
+  }
+  & select {
+   position: absolute;
+   top: 15px;
+   left: 0;
+   overflow: hidden;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+}
   }
   @media screen and (min-width: 768px) {
     & > p {
@@ -171,7 +182,6 @@ export const DatetimeBar = styled.div`
 export const Category = styled.p`
   max-width: 120px;
   width: 100%;
-  /* margin-top: 47px; */
   padding: 10px 0 11px 21px;
   border-radius: 0px 25px 25px 0px;
   font-size: 14px;
