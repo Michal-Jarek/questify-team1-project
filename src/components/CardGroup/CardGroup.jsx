@@ -42,11 +42,8 @@ export const CardGroup = ({ cards, groupName }) => {
         <Div>
             <GroupTitle>
                 {sortByGroup(groupName).length > 0 &&
-                    <p>{groupName}
-                        {/* <>
-                            <ListDown />
-                            <span></span>
-                        </> */}
+                    <p>
+                        {groupName}
                     </p>}
             </GroupTitle>
             <QuestList
