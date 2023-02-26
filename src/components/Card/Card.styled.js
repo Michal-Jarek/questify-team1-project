@@ -186,69 +186,63 @@ export const Category = styled.p`
 `;
 
 export const FlippedCard = styled.div`
-  width: 100%;
-  height: 260px;
-  padding: 20px 17px 0;
-  background-color: white;
-  text-align: center;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
-    3px 4px 4px rgba(21, 57, 90, 0.03);
-  border-radius: 10px;
-  & p {
-    margin-bottom: 10px;
-    font-style: normal;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #000000;
-  }
-  & svg {
-    margin-bottom: 7px;
-    width: 200px;
-    height: 165px;
-  }
-  & span {
-    font-style: normal;
-    font-size: 16px;
-    text-decoration-line: underline;
-    text-transform: none;
-    color: #00d7ff;
-    cursor: pointer;
-  }
-  @media screen and (min-width: 768px) {
-    height: 199px;
-    & p {
-      font-size: 11px;
-    }
-    & span {
-      font-size: 12px;
-    }
-    & svg {
-      width: 144px;
-      height: 124px;
-    }
-  }
+	width: 100%;
+	height: 260px;
+	padding: 20px 17px;
+	background-color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+	border-radius: 10px;
+	& p {
+		margin-bottom: 10px;
+		font-style: normal;
+		font-size: 16px;
+		text-transform: uppercase;
+		color: #000000;
+	}
+	& span {
+		font-style: normal;
+		font-size: 16px;
+		text-decoration-line: underline;
+		text-transform: none;
+		color: #00d7ff;
+		cursor: pointer;
+	}
+	@media screen and (min-width: 768px) {
+		height: 199px;
+		& p {
+			font-size: 11px;
+		}
+		& span {
+			font-size: 12px;
+		}
+	}
 `;
 
 export const ContinueBox = styled.div`
-  cursor: pointer;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & p {
-    margin-bottom: 0;
-    margin-right: 7px;
-    color: #b9c3c8;
-  }
-  & svg {
-    margin-bottom: 0;
-    width: 10px;
-    height: 10px;
-  }
-  @media screen and (min-width: 768px) {
-    & svg {
-      width: 7px;
-      height: 5px;
-    }
-  }
+	cursor: pointer;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& p {
+		margin-bottom: 0;
+		margin-right: 7px;
+		color: #b9c3c8;
+	}
+	& svg {
+		margin-bottom: 0;
+		width: 10px;
+		height: 10px;
+	}
+	@media screen and (min-width: 768px) {
+		& svg {
+			width: 7px;
+			height: 5px;
+		}
+	}
 `;
