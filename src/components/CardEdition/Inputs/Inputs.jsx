@@ -4,13 +4,13 @@ import { TextField } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DateTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateRange } from '@mui/icons-material';
+import DateRangeIcon  from '@mui/icons-material/DateRange';
 import { InputWrapper, DateTimeBar } from './Inputs.styled';
 
 export const Inputs = ({
     action,
     cardType,
-    title,
+    titleValue,
     onTitleChange,
     dateTime,
     onDateTimeChange,
@@ -27,13 +27,13 @@ export const Inputs = ({
                     {action} {cardType === 'Task' ? 'Quest' : cardType}
                 </label>
                 <input
+                    value={titleValue}
                     id='create-new-quest'
-                    value={title}
                     type='text'
-                    onChange={onTitleChange}
-                    placeholder={placeholder}
                     autoFocus
                     required
+                    onChange={onTitleChange}
+                    placeholder={placeholder}
                 ></input>
             </InputWrapper>
             <DateTimeBar cardType={cardType}>
@@ -46,7 +46,7 @@ export const Inputs = ({
                         minDateTime={dayjs()}
                         inputFormat='YYYY-MM-DD, HH:mm'
                         mask='____-__-__, __:__'
-                        components={{ OpenPickerIcon: DateRange }}
+                        components={{ OpenPickerIcon: DateRangeIcon, }}
                         renderInput={(params) => (
                         <TextField {...params} placeholder='Today' />
                         )}

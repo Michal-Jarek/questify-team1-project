@@ -8,7 +8,7 @@ export const QuestList = ({ groupName, sortByGroup }) => {
         <List>
             {sortByGroup(groupName).map((card) => (
                 <Card
-                    key={card.id}
+                    key={card._id}
                     {...card}
                 />
             ))}

@@ -11,9 +11,8 @@ import { useEditOptions } from 'utils/hooks/useEditOptions';
 import { Card } from './CardEdition.styled';
 import { difficulty, category } from 'utils/cardData/cardData';
 
-
 export const CardEdition = ({
-    isEdited,
+    isOpen,
     cardId,
     cardDifficulty,
     cardType,
@@ -74,7 +73,7 @@ export const CardEdition = ({
 
         const isCardValid = (payload) => {
             editCard(payload);
-            setTitle('')
+            setTitle('');
             onCancel();
         };
 
@@ -83,7 +82,7 @@ export const CardEdition = ({
 
     return (
         <Card
-            isEdited={isEdited}
+            isOpen={isOpen}
             cardType={cardChallenge}
         >
             <Header
@@ -103,7 +102,7 @@ export const CardEdition = ({
                 action={'Edit'}
                 title={title}
                 onCancel={onCancel}
-                cardType={cardChallenge}
+                cardType={cardChallenge} 
                 onTitleChange={handleTitleChange}
                 dateTime={datePicker}
                 onDateTimeChange={setDatePicker}

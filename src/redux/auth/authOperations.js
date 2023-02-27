@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://stirring-pavlova-0c5052.netlify.app", //adres serwera z  backendem https://questify-backend.goit.global
+    baseUrl: "https://stirring-pavlova-0c5052.netlify.app/.netlify/functions/app", //adres serwera z  backendem https://questify-backend.goit.global https://stirring-pavlova-0c5052.netlify.app/.netlify/functions/app
     prepareHeaders: (headers, { getState }) => {
       const token = getState().token;
       if (token) {
@@ -53,7 +53,7 @@ export const questifyApi = createApi({
       query: (cardData) => ({
         url: `/card/${cardData.id}`,
         method: 'PATCH',
-        body: cardData.body,
+        body: cardData,
       }),
       invalidatesTags: ['Auth', 'Card'],
     }),

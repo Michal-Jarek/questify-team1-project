@@ -36,12 +36,8 @@ export const Card = ({
   const [completeCard] = useCompleteCardMutation();
   const [isFlipped, setIsFlipped] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen)
-
-  const editOpen = () => setIsEditModalOpen(true);
-  const editClose = () => setIsEditModalOpen(false);
 
   const toggleIsFlipped = () => {
     if (status === "Complete") {
@@ -74,6 +70,10 @@ export const Card = ({
     };
     return title;
   })();
+
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const editOpen = () => setIsEditModalOpen(true);
+  const editClose = () => setIsEditModalOpen(false);
 
   return (
     <CardContainer cardType={type}>
@@ -121,16 +121,17 @@ export const Card = ({
       </ReactCardFlip>
       {isEditModalOpen && (
         <CardEdition
-          isEdited={isEditModalOpen}
+          isOpen={isEditModalOpen}
           cardId={id}
           cardType={type}
           cardChallenge={type}
           cardDifficulty={difficulty}
           cardTitle={title}
           cardTime={questTime}
+          cardCategory={category}
           onCancel={editClose}
         />
-      )}
+      )} 
     </CardContainer>
   );
 };
