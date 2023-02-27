@@ -1,5 +1,4 @@
 import React from "react";
-// import css from "./Logout.module.css";
 import icons from "../../../assests/icons/sprite.svg";
 import { BtnLogout, SvgLogout } from "./Logout.styled";
 import Cookies from "js-cookie";
