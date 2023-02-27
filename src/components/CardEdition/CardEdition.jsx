@@ -3,15 +3,15 @@ import dayjs from 'dayjs';
 import { Header } from './Header/Header';
 import { Inputs } from './Inputs/Inputs';
 import { Footer } from './Footer/Footer';
-import DeleteModal from 'components/DeleteModal/DeleteModal';
-import { SelectionMenu } from 'components/CardEdition/SelectionMenu/SelectionMenu';
-import { useEditCardMutation, useDeleteCardMutation } from 'redux/auth/authOperations';
-import { separateDate, separateTime } from 'components/Card/helperFunctions/dateAndTime/separateFunctions';
-import { useEditOptions } from 'utils/hooks/useEditOptions';
+import DeleteModal from '../DeleteModal/DeleteModal';
+import { SelectionMenu } from '../CardEdition/SelectionMenu/SelectionMenu';
+import { useEditCardMutation, useDeleteCardMutation } from '../../redux/auth/authOperations';
+import { separateDate, separateTime } from '../Card/helperFunctions/dateAndTime/separateFunctions';
+import { useEditOptions } from '../../utils/hooks/useEditOptions';
+import { difficulty, category } from '../../utils/cardData/cardData';
 import { Card } from './CardEdition.styled';
-import { difficulty, category } from 'utils/cardData/cardData';
 
-export const CardEdition = ({
+const CardEdition = ({
     isOpen,
     cardId,
     cardDifficulty,
@@ -23,11 +23,11 @@ export const CardEdition = ({
     onCancel,
 }) => {
     const [editCard] = useEditCardMutation();
+    const [deleteCard] = useDeleteCardMutation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [title, setTitle] = useState(cardTitle);
     const [type] = useState(cardType)
     const [datePicker, setDatePicker] = useState(dayjs(cardTime));
-    const [deleteCard] = useDeleteCardMutation();
     const [isError, setIsError] = useState('');
 
     const {
@@ -61,7 +61,7 @@ export const CardEdition = ({
         const time = separateTime(datePicker);
         const payload = {
             body: {
-                difficulty: selectDifficulty,
+                difficulty: selectedDifficulty,
                 type: cardType,
                 title: cardTitle,
                 date: date,
@@ -96,15 +96,15 @@ export const CardEdition = ({
                 isOpen={isDifficultyMenuOpen}
                 menuItemData={difficulty}
                 onClose={selectDifficulty}
-                selectedData={selectDifficulty}
+                selectedData={selectedDifficulty}
             />
             <Inputs
                 action={'Edit'}
-                title={title}
+                titleValue={title}
                 onCancel={onCancel}
                 cardType={cardChallenge} 
                 onTitleChange={handleTitleChange}
-                dateTime={datePicker}
+                dateTimeValue={datePicker}
                 onDateTimeChange={setDatePicker}
                 placeholder={isError && isError}
             />
@@ -133,3 +133,5 @@ export const CardEdition = ({
         </Card>
     );
 };
+
+export default CardEdition;

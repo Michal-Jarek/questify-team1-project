@@ -1,6 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DateTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -12,7 +12,7 @@ export const Inputs = ({
     cardType,
     titleValue,
     onTitleChange,
-    dateTime,
+    dateTimeValue,
     onDateTimeChange,
     placeholder,
     onCancel
@@ -39,7 +39,7 @@ export const Inputs = ({
             <DateTimeBar cardType={cardType}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker 
-                        value={dateTime}
+                        value={dateTimeValue}
                         onChange={(newValue) => { onDateTimeChange(newValue) }}
                         onError={console.log}
                         ampm={false}

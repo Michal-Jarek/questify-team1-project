@@ -6,9 +6,9 @@ import { ReactComponent as TrophyIcon } from './images/trophy.svg';
 import { ReactComponent as QuestAwardIcon } from './images/award.svg';
 import { ReactComponent as ChallengeAwardIcon } from './images/challenge-award.svg';
 import { ReactComponent as ArrowIcon } from './images/arrow.svg';
-import { CardEdition } from 'components/CardEdition/CardEdition';
+import CardEdition from '../CardEdition/CardEdition';
 import DeleteModal from '../DeleteModal/DeleteModal';
-import { useCompleteCardMutation } from 'redux/auth/authOperations';
+import { useCompleteCardMutation } from '../../redux/auth/authOperations';
 import { useTimeout } from './helperFunctions/dateAndTime/timeout';
 import { convertDayDisplay } from './helperFunctions/dateAndTime/dayConverter';
 import {
@@ -131,7 +131,7 @@ export const Card = ({
           cardCategory={category}
           onCancel={editClose}
         />
-      )} 
+     )} 
     </CardContainer>
   );
 };
