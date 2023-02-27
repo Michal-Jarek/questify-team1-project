@@ -38,14 +38,14 @@ export const Card = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen)
-
+  
   const toggleIsFlipped = () => {
     if (status === "Complete") {
       return;
     }
     setIsFlipped((current) => !current);
   };
-
+  
   const convertedDate = convertDayDisplay(date, type);
   const questTime = new Date(`${date}T${time}`).getTime();
   const timeout = useTimeout(questTime);

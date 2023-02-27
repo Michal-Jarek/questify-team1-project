@@ -1,10 +1,12 @@
-.userTitle {
+import styled from 'styled-components';
+
+export const User = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+`;
 
-.avatar {
+export const Avatar = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18,20 +20,23 @@
 	line-height: 0.965;
 	font-weight: 900;
 	text-align: center;
-}
 
-.userName {
+	@media screen and (max-width: 767px) {
+		margin-right: 0px;
+	}
+`;
+
+export const UserName = styled.p`
 	color: #7b8aa4;
 	font-size: 17px;
 	line-height: 0.965;
 	font-weight: 400;
-}
 
-@media screen and (max-width: 767px) {
-	.userName {
+	&::first-letter {
+		text-transform: uppercase;
+	}
+
+	@media screen and (max-width: 767px) {
 		display: none;
 	}
-	.avatar {
-		margin-right: 0px;
-	}
-}
+`;
