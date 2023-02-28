@@ -74,7 +74,7 @@ export const InputWrapper = styled.div`
     font-size: 16px;
     line-height: 16px;
     background-color: ${(props) =>
-      props.cardType === "Task" ? "#B9C3C8" : "#15395A"};
+      props.cardType === "task" ? "#B9C3C8" : "#15395A"};
     color: #282828;
   }
 `;
@@ -89,7 +89,7 @@ export const Card = styled.div`
   top: 0;
   left: 0;
   background-color: ${(props) =>
-    props.cardType === "Task" ? "#fff" : "#15395A"};
+    props.cardType === "task" ? "#fff" : "#15395A"};
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
     3px 4px 4px rgba(21, 57, 90, 0.03);
   & p {
