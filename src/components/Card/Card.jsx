@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import { ReactComponent as FireIcon } from "./images/fire.svg";
-import { ReactComponent as StarIcon } from "./images/star.svg";
-import { ReactComponent as TrophyIcon } from "./images/trophy.svg";
-import { ReactComponent as ChallengeAwardIcon } from "./images/challenge-award.svg";
-import { ReactComponent as ArrowIcon } from "./images/arrow.svg";
-import { CardEdition } from "../CardEdition/CardEdition";
-import DeleteModal from "../DeleteModal/DeleteModal";
-import { useCompleteCardMutation } from "../../redux/auth/questifyApi";
-import { useTimeout } from "./helperFunctions/dateAndTime/timeout";
-import { convertDayDisplay } from "./helperFunctions/dateAndTime/dayConverter";
+import { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
+import { ReactComponent as FireIcon } from './images/fire.svg';
+import { ReactComponent as StarIcon } from './images/star.svg';
+import { ReactComponent as TrophyIcon } from './images/trophy.svg';
+import { ReactComponent as ChallengeAwardIcon } from './images/challenge-award.svg';
+import { ReactComponent as ArrowIcon } from './images/arrow.svg';
+import { CardEdition } from '../CardEdition/CardEdition';
+import DeleteModal from '../DeleteModal/DeleteModal';
+import { useCompleteCardMutation } from '../../redux/auth/questifyApi';
+import { useTimeout } from './helperFunctions/dateAndTime/timeout';
+import { convertDayDisplay } from './helperFunctions/dateAndTime/dayConverter';
 import {
-  CardItem,
-  CardType,
-  Category,
-  DatetimeBar,
-  DifficultyBar,
-  FlippedCard,
-  ContinueBox,
-  CardContainer,
-  TitleDataWrapper,
-} from "./Card.styled";
-import { CompletedTask } from "./completedTask/CompletedTask";
+	CardItem,
+	CardType,
+	Category,
+	DatetimeBar,
+	DifficultyBar,
+	FlippedCard,
+	ContinueBox,
+	CardContainer,
+	TitleDataWrapper,
+} from './Card.styled';
+import { CompletedTask } from './CompletedTask/CompletedTask';
 
 export const Card = ({
   _id,
@@ -35,46 +35,46 @@ export const Card = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const [completeCard] = useCompleteCardMutation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+	const [completeCard] = useCompleteCardMutation();
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen);
+	const toggleModal = () => setIsModalOpen(isModalOpen => !isModalOpen);
 
-  const toggleIsFlipped = () => {
-    if (status === "Complete") {
-      return;
-    }
-    setIsFlipped((current) => !current);
-  };
+	const toggleIsFlipped = () => {
+		if (status === 'Complete') {
+			return;
+		}
+		setIsFlipped(current => !current);
+	};
 
-  const convertedDate = convertDayDisplay(date, type);
-  const questTime = new Date(`${date}T${time}`).getTime();
-  const timeout = useTimeout(questTime);
+	const convertedDate = convertDayDisplay(date, type);
+	const questTime = new Date(`${date}T${time}`).getTime();
+	const timeout = useTimeout(questTime);
 
-  const isChallenge = (type) => type === "challenge";
-  const typeIcon = isChallenge(type) ? (
-    <TrophyIcon onClick={toggleIsFlipped} />
-  ) : (
-    <StarIcon onClick={toggleIsFlipped} />
-  );
+	const isChallenge = type => type === 'Challenge';
+	const typeIcon = isChallenge(type) ? (
+		<TrophyIcon onClick={toggleIsFlipped} />
+	) : (
+		<StarIcon onClick={toggleIsFlipped} />
+	);
 
-  let awardIcon = null;
-  if (isFlipped) {
-    awardIcon = isChallenge(type) ? <ChallengeAwardIcon /> : <CompletedTask />;
-  }
+	let awardIcon = null;
+	if (isFlipped) {
+		awardIcon = isChallenge(type) ? <ChallengeAwardIcon /> : <CompletedTask />;
+	}
 
-  const shortenedTitle = (() => {
-    if (title.length > 18) {
-      return `${title.slice(0, 17)}...`;
-    } else if (undefined) {
-      return console.log("ERROR");
-    }
-    return title;
-  })();
+	const shortenedTitle = (() => {
+		if (title.length > 18) {
+			return `${title.slice(0, 17)}...`;
+		} else if (undefined) {
+			return console.log('ERROR');
+		}
+		return title;
+	})();
 
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const editOpen = () => setIsEditModalOpen(true);
-  const editClose = () => setIsEditModalOpen(false);
+	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+	const editOpen = () => setIsEditModalOpen(true);
+	const editClose = () => setIsEditModalOpen(false);
 
   return (
     <CardContainer cardType={type}>
