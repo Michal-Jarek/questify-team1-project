@@ -51,7 +51,7 @@ export const Card = ({
   const questTime = new Date(`${date}T${time}`).getTime();
   const timeout = useTimeout(questTime);
 
-  const isChallenge = (type) => type === "Challenge";
+  const isChallenge = (type) => type === "challenge";
   const typeIcon = isChallenge(type) ? (
     <TrophyIcon onClick={toggleIsFlipped} />
   ) : (

@@ -53,7 +53,7 @@ export const CardItem = styled.div`
     3px 4px 4px rgba(21, 57, 90, 0.03);
   border-radius: 10px;
   background-color: ${(props) =>
-    props.cardType === "Task" ? "#FFF" : "#15395A"};
+    props.cardType === "task" ? "#FFF" : "#15395A"};
   height: 260px;
   width: 100%;
   padding: 19px 21px 33px 0;
@@ -97,8 +97,8 @@ export const DifficultyBar = styled.div`
   }
   & svg {
     width: 19px;
-    height: ${(props) => (props.cardType === "Task" ? "18px" : "19px")};
-    margin-right: ${(props) => props.cardType === "Challenge" && "0px"};
+    height: ${(props) => (props.cardType === "task" ? "18px" : "19px")};
+    margin-right: ${(props) => props.cardType === "challenge" && "0px"};
     &:hover {
       filter: ${(props) =>
         props.cardType === "Task"
@@ -125,8 +125,8 @@ export const TitleDataWrapper = styled.div`
     text-align: center;
     cursor: pointer;
     margin-bottom: ${(props) =>
-      props.cardType === "Challenge" ? "10px" : "12px"};
-    color: ${(props) => props.cardType === "Challenge" && "#FFF"};
+      props.cardType === "challenge" ? "10px" : "12px"};
+    color: ${(props) => props.cardType === "challenge" && "#FFF"};
   }
   @media screen and (min-width: 768px) {
     & > h3 {

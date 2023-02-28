@@ -125,7 +125,7 @@ export const CardEdition = ({
             />
             <DeleteModal 
                 isOpen={isModalOpen}
-                modalContent={`Delete this ${cardType === "Task" ? "Quest" : cardType}`}
+                modalContent={`Delete this ${cardType === "Task" ? "Quest" : cardType}?`}
                 nameOfConfirm='Delete'
                 cancelAction={toggleModal}
                 confirmAction={() => deleteCard(cardId)}

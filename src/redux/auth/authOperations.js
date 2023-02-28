@@ -54,7 +54,7 @@ export const questifyApi = createApi({
       query: (cardData) => ({
         url: `/card/${cardData.id}`,
         method: 'PATCH',
-        body: cardData.body,
+        body: cardData,
       }),
       invalidatesTags: ['Auth', 'Card'],
     }),
