@@ -6,12 +6,15 @@ export const QuestList = ({ groupName, sortByGroup }) => {
     
     return (
         <List>
-            {sortByGroup(groupName).map((card) => (
-                <Card
-                    key={card.id}
-                    {...card}
-                />
-            ))}
+            {sortByGroup(groupName).map((card) => {
+                console.log(card);
+                return (
+                    <Card
+                        key={card._id}
+                        {...card}
+                    />
+                )
+            })}
         </List>
     );
 };
