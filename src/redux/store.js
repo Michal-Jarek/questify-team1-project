@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { questifyApi } from "./auth/authOperations";
+import { questifyApi } from "./auth/questifyApi";
 import tokenSlice from "./auth/tokenSlice.jsx";
 import userSlice from "./auth/userSlice.jsx";
 import storage from "redux-persist/lib/storage";

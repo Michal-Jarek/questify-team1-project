@@ -7,7 +7,7 @@ import { ReactComponent as ChallengeAwardIcon } from "./images/challenge-award.s
 import { ReactComponent as ArrowIcon } from "./images/arrow.svg";
 import { CardEdition } from "../CardEdition/CardEdition";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import { useCompleteCardMutation } from "../../redux/auth/authOperations";
+import { useCompleteCardMutation } from "../../redux/auth/questifyApi";
 import { useTimeout } from "./helperFunctions/dateAndTime/timeout";
 import { convertDayDisplay } from "./helperFunctions/dateAndTime/dayConverter";
 import {
@@ -24,7 +24,7 @@ import {
 import { CompletedTask } from "./completedTask/CompletedTask";
 
 export const Card = ({
-  id,
+  _id,
   title,
   difficulty,
   category,
@@ -110,14 +110,14 @@ export const Card = ({
             modalContent="Are you sure to mark card as done?"
             nameOfConfirm="Yes"
             cancelAction={toggleModal}
-            confirmAction={() => completeCard(id)}
+            confirmAction={() => completeCard(_id)}
           />
         </FlippedCard>
       </ReactCardFlip>
       {isEditModalOpen && (
         <CardEdition
           isOpen={isEditModalOpen}
-          cardId={id}
+          cardId={_id}
           cardType={type}
           cardChallenge={type}
           cardDifficulty={difficulty}
