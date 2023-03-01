@@ -4,6 +4,7 @@ import { ReactComponent as Arrow } from '../../../assests/completedTask/arrow.sv
 import { ReactComponent as Clouds } from '../../../assests/completedTask/clouds.svg';
 import css from './CompletedTask.module.css';
 
+
 export const CompletedTask = () => {
 	return (
 		<div className={css.completedTaskWrapper}>
