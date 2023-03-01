@@ -51,7 +51,7 @@ export const DevelopersListBtn = () => {
           </li>
           <li>
           <GithubBtn>
-          Daria Ośka
+          Daria Ośka-Ossowska
 					<a href="https://github.com/DariaOskaOssowska" target="_blank"rel="noreferrer">
 					<SvgGithub width='20' height='20'>
 						<use xlinkHref={`${icons}#iconmonstr-github`} />

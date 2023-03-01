@@ -23,17 +23,8 @@ import {
 } from './Card.styled';
 import { CompletedTask } from './CompletedTask/CompletedTask';
 
-export const Card = ({
-  _id,
-  title,
-  difficulty,
-  category,
-  date,
-  time,
-  type,
-  status,
-}) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+export const Card = ({ _id, title, difficulty, category, date, time, type, status }) => {
+	const [isFlipped, setIsFlipped] = useState(false);
 
 	const [completeCard] = useCompleteCardMutation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,7 +32,7 @@ export const Card = ({
 	const toggleModal = () => setIsModalOpen(isModalOpen => !isModalOpen);
 
 	const toggleIsFlipped = () => {
-		if (status === 'Complete') {
+		if (status === 'complete') {
 			return;
 		}
 		setIsFlipped(current => !current);
@@ -76,57 +67,57 @@ export const Card = ({
 	const editOpen = () => setIsEditModalOpen(true);
 	const editClose = () => setIsEditModalOpen(false);
 
-  return (
-    <CardContainer cardType={type}>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-        <CardItem cardType={type}>
-          <DifficultyBar cardType={type} difficulty={difficulty}>
-            <p>{difficulty}</p>
-            {typeIcon}
-          </DifficultyBar>
-          <TitleDataWrapper cardType={type}>
-            {isChallenge(type) && <CardType>{type}</CardType>}
-            <h3 onClick={editOpen}>{title}</h3>
-            <DatetimeBar>
-              <p>
-                <span>{convertedDate}</span>, <span>{time}</span>
-              </p>
-              {timeout && <FireIcon />}
-            </DatetimeBar>
-          </TitleDataWrapper>
-          <Category category={category}>{category}</Category>
-        </CardItem>
-        <FlippedCard>
-          <p>
-            COMPLETED: <span onClick={toggleIsFlipped}>{shortenedTitle}</span>
-          </p>
-          {awardIcon}
-          <ContinueBox onClick={toggleModal}>
-            <p>Continue</p>
-            <ArrowIcon />
-          </ContinueBox>
-          <DeleteModal
-            isOpen={isModalOpen}
-            modalContent="Are you sure to mark card as done?"
-            nameOfConfirm="Yes"
-            cancelAction={toggleModal}
-            confirmAction={() => completeCard(_id)}
-          />
-        </FlippedCard>
-      </ReactCardFlip>
-      {isEditModalOpen && (
-        <CardEdition
-          isOpen={isEditModalOpen}
-          cardId={_id}
-          cardType={type}
-          cardChallenge={type}
-          cardDifficulty={difficulty}
-          cardTitle={title}
-          cardTime={questTime}
-          cardCategory={category}
-          onCancel={editClose}
-        />
-      )}
-    </CardContainer>
-  );
+	return (
+		<CardContainer cardType={type}>
+			<ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
+				<CardItem cardType={type}>
+					<DifficultyBar cardType={type} difficulty={difficulty}>
+						<p>{difficulty}</p>
+						{typeIcon}
+					</DifficultyBar>
+					<TitleDataWrapper cardType={type}>
+						{isChallenge(type) && <CardType>{type}</CardType>}
+						<h3 onClick={editOpen}>{title}</h3>
+						<DatetimeBar>
+							<p>
+								<span>{convertedDate}</span>, <span>{time}</span>
+							</p>
+							{timeout && { status } !== 'complete' && <FireIcon />}
+						</DatetimeBar>
+					</TitleDataWrapper>
+					<Category category={category}>{category}</Category>
+				</CardItem>
+				<FlippedCard>
+					<p>
+						COMPLETED: <span onClick={toggleIsFlipped}>{shortenedTitle}</span>
+					</p>
+					{awardIcon}
+					<ContinueBox onClick={toggleModal}>
+						<p>Continue</p>
+						<ArrowIcon />
+					</ContinueBox>
+					<DeleteModal
+						isOpen={isModalOpen}
+						modalContent='Are you sure to mark card as done?'
+						nameOfConfirm='Yes'
+						cancelAction={toggleModal}
+						confirmAction={() => completeCard(_id)}
+					/>
+				</FlippedCard>
+			</ReactCardFlip>
+			{isEditModalOpen && (
+				<CardEdition
+					isOpen={isEditModalOpen}
+					cardId={_id}
+					cardType={type}
+					cardChallenge={type}
+					cardDifficulty={difficulty}
+					cardTitle={title}
+					cardTime={questTime}
+					cardCategory={category}
+					onCancel={editClose}
+				/>
+			)}
+		</CardContainer>
+	);
 };
