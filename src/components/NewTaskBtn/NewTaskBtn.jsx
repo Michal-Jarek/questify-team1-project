@@ -1,12 +1,34 @@
 import React from "react";
 import { Div } from "./NewTaskBtn.styled";
 import { useSelector } from "react-redux";
+import { useCreateCardMutation } from "redux/auth/questifyApi";
 
-const NewTaskBtn = ({ onClick }) => {
-  const isActiveChallenge = useSelector(state => state.user.challengeFIlter)
+const newTask = () => {
+  const date = new Date().toJSON().slice(0, 10);
+  const time = new Date().toJSON().slice(11, 16);
+  const newTask = {
+    title: "CREATE NEW QUEST",
+    difficulty: "easy",
+    category: "learning",
+    type: "task",
+    date,
+    time,
+  };
+  return newTask;
+  
+};
+
+const NewTaskBtn = () => {
+  const [addCard] = useCreateCardMutation();
+  const handleAdd = () => {
+    const payload = newTask();
+    return addCard(payload);
+  }
+  const isActiveChallenge = useSelector((state) => state.user.challengeFIlter);
+
   return (
     <Div isActiveChallenge={isActiveChallenge}>
-      <button onClick={onClick}>
+      <button onClick={handleAdd}>
         <svg
           width="16"
           height="16"
