@@ -19,11 +19,14 @@ const newTask = () => {
 };
 
 const NewTaskBtn = () => {
+
   const [addCard] = useCreateCardMutation();
+  
   const handleAdd = () => {
     const payload = newTask();
     return addCard(payload);
   }
+  
   const isActiveChallenge = useSelector((state) => state.user.challengeFIlter);
 
   return (
