@@ -9,12 +9,22 @@ import {
 } from "./LandingModal.styled";
 import { IoMdClose } from "react-icons/io";
 import { useRegisterMutation } from "../../../redux/auth/questifyApi";
+import { useLoginMutation } from "../../../redux/auth/questifyApi";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../../redux/auth/tokenSlice";
+import { addUser } from "../../../redux/auth/userSlice";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import validationSchema from "../../../utils/schemas/formValidation.js";
 
+
 const LandingModal = ({ setIsOpen }) => {
   const [register] = useRegisterMutation();
+  const [login] = useLoginMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { handleSubmit, values, handleChange, touched, errors, resetForm } =
     useFormik({
@@ -31,9 +41,31 @@ const LandingModal = ({ setIsOpen }) => {
             setIsOpen(false);
             toast.success("Now you can use your credentials to login");
           })
+
           .catch(() => {
             toast.warn(`User with ${values.email} already exists`);
-          });
+          }); await login(values)
+					.unwrap()
+					.then(
+						({
+							accessToken,
+							sid,
+							refreshToken,
+							userData: { email, id, cards },
+						}) => {
+							Cookies.set("token", accessToken);
+							if (accessToken) {
+								dispatch(addUser({ email, id, cards, sid, refreshToken }));
+							}
+						}
+					);
+          const token = Cookies.get("token");
+				if (token === undefined) {
+					return;
+				}
+				dispatch(addToken(token));
+				navigate("/");
+				resetForm();
       },
     });
   return (
