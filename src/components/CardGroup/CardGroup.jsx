@@ -24,7 +24,6 @@ export const CardGroup = ({ cards, groupName, hideLabel }) => {
 	};
 
 	const sortByGroup = groupName => {
-		console.log('karty: ', cards);
 		if (challengeState) {
 			return cards.filter(card => card.type === 'Challange');
 		} else {

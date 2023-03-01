@@ -16,7 +16,8 @@ export const CardGroupContainer = () => {
 	// ];
 
 	const { data: { cards } = [], isLoading, isSuccess, isError, error } = useGetAllCardsQuery();
-
+	console.log(useGetAllCardsQuery());
+	console.log(cards);
 	const renderView = () => {
 		if (isLoading) {
 			<Loader>...</Loader>;

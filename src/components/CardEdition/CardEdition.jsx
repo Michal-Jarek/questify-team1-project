@@ -68,15 +68,13 @@ export const CardEdition = ({
     const payload = {
       body: {difficulty: selectedDifficulty.toLowerCase(),
       type: cardType.toLowerCase(),
-      title: cardTitle.toLowerCase(),
+      title: cardTitle,
       date: date,
       time: time,
         category: cardCategory.toLowerCase()
       },
       id: cardId, 
     };
-    console.log("payload");
-    console.log(payload);
 
     const isCardValid = (payload) => {
       editCard(payload);
