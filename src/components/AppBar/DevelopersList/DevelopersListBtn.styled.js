@@ -63,7 +63,7 @@ export const DeleteMenu = styled.div`
   list-style-type: none;
   padding: 0;
   font-size: 16px;
-	line-height: 2;
+	line-height: 2.3;
 	color: #7B8AA4;
 	font-weight: 700;
 	letter-spacing: 0.02em;
@@ -97,6 +97,29 @@ export const SvgClose = styled.svg`
 	display: flex;
 	fill: #3e4e6c;
 	transition: fill 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+	fill: #00d7ff;
+`;
+
+export const GithubBtn = styled.span`
+	display: flex;
+	background-color: transparent;
+	border: none;
+
+	@media screen and (max-width: 767px) {
+		margin-right: 0px;
+	}
+`;
+
+export const SvgGithub = styled.svg`
+margin-top: 6px;
+margin-left: 10px;
+	display: flex;
+	fill: #3e4e6c;
+	transition: fill 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+
     
     &:hover {
 	fill: #00d7ff;
