@@ -32,22 +32,28 @@ export const DevelopersListWrapper = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(21, 57, 90, 0.3);
-  z-index: 2
+  z-index: 999
 `;
 
 export const DeleteMenu = styled.div`
   background: #ffffff;
   border-radius: 10px;
   width: 400px;
-  height: 590px;
+  height: 560px;
   position: absolute;
-  top: 150px;
+  top: 50px;
 
   @media screen and (min-width: 768px) {
-    font-size: 12px;
+	font-size: 12px;
     line-height: 12px;
     padding: 25px 0px 16px 0px;
-	height: 400px;
+	height: 300px;
+	width: 750px;
+	top: 150px;
+  }
+
+  @media screen and (min-width: 1024px) {
+	height: 350px;
 	width: 1000px;
   }
 
@@ -83,7 +89,6 @@ export const DeleteMenu = styled.div`
 
   & ul {
 	display: inline;
-	
   list-style-type: none;
   padding: 0;
   font-size: 16px;
@@ -95,8 +100,12 @@ export const DeleteMenu = styled.div`
 	@media screen and (min-width: 768px) {
 		display: grid;
 		grid-template-columns: auto auto auto;
-		font-size: 26px;
+		font-size: 16px;
 		justify-content: center;
+	}
+
+	@media screen and (min-width: 1024px) {
+		font-size: 26px;
 	}
   }
 
@@ -109,7 +118,7 @@ export const DeleteMenu = styled.div`
   & div {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 `;
 
