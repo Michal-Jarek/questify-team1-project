@@ -32,9 +32,6 @@ export const Card = ({ _id, title, difficulty, category, date, time, type, statu
 	const toggleModal = () => setIsModalOpen(isModalOpen => !isModalOpen);
 
 	const toggleIsFlipped = () => {
-		if (status === 'complete') {
-			return;
-		}
 		setIsFlipped(current => !current);
 	};
 
@@ -82,7 +79,7 @@ export const Card = ({ _id, title, difficulty, category, date, time, type, statu
 							<p>
 								<span>{convertedDate}</span>, <span>{time}</span>
 							</p>
-							{timeout && { status } !== 'complete' && <FireIcon />}
+							{timeout &&  status !== 'complete' && <FireIcon />}
 						</DatetimeBar>
 					</TitleDataWrapper>
 					<Category category={category}>{category}</Category>
@@ -93,12 +90,16 @@ export const Card = ({ _id, title, difficulty, category, date, time, type, statu
 					</p>
 					{awardIcon}
 					<ContinueBox onClick={toggleModal}>
-						<p>Continue</p>
+						<p> {status !== 'complete' ? 'Continue' : 'Revert'}</p>
 						<ArrowIcon />
 					</ContinueBox>
 					<DeleteModal
 						isOpen={isModalOpen}
-						modalContent='Are you sure to mark card as done?'
+						modalContent={
+							status !== 'complete'
+								? 'Are you sure to mark card as done?'
+								: 'Are you sure to mark card as undone?'
+						}
 						nameOfConfirm='Yes'
 						cancelAction={toggleModal}
 						confirmAction={() => completeCard(_id)}
