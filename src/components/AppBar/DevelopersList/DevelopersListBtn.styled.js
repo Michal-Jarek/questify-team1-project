@@ -72,10 +72,12 @@ export const DeleteMenu = styled.div`
 	justify-content: center;
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	border-radius: 10px;
+	background-color: #F2F3F7;
+
 
 	@media screen and (min-width: 768px) {
 		padding: 15px;
-		border: 2px solid rgba(0, 0, 0, 0.8);
+		border: 3px solid rgba(0, 0, 0, 0.8);
 	}
   }
 
@@ -86,7 +88,7 @@ export const DeleteMenu = styled.div`
   padding: 0;
   font-size: 16px;
 	line-height: 2.3;
-	color: #7B8AA4;
+	color: #3e4e6c;
 	font-weight: 700;
 	letter-spacing: 0.02em;
 
