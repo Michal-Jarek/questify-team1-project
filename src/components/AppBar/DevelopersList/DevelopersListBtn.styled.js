@@ -9,6 +9,8 @@ export const DevelopersBtn = styled.button`
 
     @media screen and (max-width: 767px) {
 		padding: 0;
+		margin-right: 0px;
+		margin-left: 15px;
 	}
 `;
 
