@@ -19,7 +19,7 @@ export const DevelopersListBtn = () => {
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
-  }, [escFunction]);
+  }, []);
  
   const [isOpen, setIsOpen] = useState(false)
 
