@@ -70,14 +70,12 @@ export const DeleteMenu = styled.div`
 	display:flex;
 	text-align: center;
 	justify-content: center;
-	border: 1px solid rgba(0, 0, 0, 0.8);
 	border-radius: 10px;
 	background-color: #F2F3F7;
 
 
 	@media screen and (min-width: 768px) {
 		padding: 15px;
-		border: 3px solid rgba(0, 0, 0, 0.8);
 	}
   }
 
