@@ -19,6 +19,7 @@ export const DevelopersListBtn = () => {
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
+// eslint-disable-next-line
   }, []);
  
   const [isOpen, setIsOpen] = useState(false)
