@@ -2,12 +2,22 @@ import React, {useState} from "react";
 import icons from "../../../assests/icons/sprite.svg";
 import { DevelopersBtn, DevelopersSvg } from "./DevelopersListBtn.styled";
 import { DevelopersListWrapper, DeleteMenu, CloseBtn, SvgClose, GithubBtn, SvgGithub } from "./DevelopersListBtn.styled";
+import { useCallback, useEffect } from "react";
+
 
 export const DevelopersListBtn = () => {
+
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape") {
+      setIsOpen(false)
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+  });
  
   const [isOpen, setIsOpen] = useState(false)
-
-
 
 
   return(
@@ -31,7 +41,7 @@ export const DevelopersListBtn = () => {
         <ul>
           <li>
             <GithubBtn>
-            Michał Jarek 
+            Michał Jarek
             <a href="https://github.com/Michal-Jarek" target="_blank" rel="noreferrer">
 					<SvgGithub width='20' height='20'>
 						<use xlinkHref={`${icons}#iconmonstr-github`} />
@@ -41,7 +51,7 @@ export const DevelopersListBtn = () => {
             </li>
           <li>
           <GithubBtn>
-          Dominika Sosnowska 
+          Dominika Sosnowska
           <a href="https://github.com/Dominika1708" target="_blank" rel="noreferrer">
 					<SvgGithub width='20' height='20'>
 						<use xlinkHref={`${icons}#iconmonstr-github`} />

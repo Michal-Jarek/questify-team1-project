@@ -23,32 +23,30 @@ export const DevelopersSvg = styled.svg`
 `;
 
 export const DevelopersListWrapper = styled.div`
-
-  // display:flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(21, 57, 90, 0.3);
+  z-index: 2
 `;
 
 export const DeleteMenu = styled.div`
   background: #ffffff;
   border-radius: 10px;
-  width: 50%;
-  height: 50%;
+  width: 400px;
+  height: 590px;
   position: absolute;
-  top: 15%;
-  left: 35%;
+  top: 150px;
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
     line-height: 12px;
     padding: 25px 0px 16px 0px;
-    top: 15%;
-    width: 30%;
+	height: 400px;
+	width: 1000px;
   }
 
   & p {
@@ -57,9 +55,33 @@ export const DeleteMenu = styled.div`
 	color: #242A37;
 	font-weight: 700;
 	letter-spacing: 0.02em;
+	margin-top:20px;
+
+	@media screen and (min-width: 768px) {
+		margin-top:0px;
+	}
+  }
+
+  & li {
+	padding: 10px;
+	margin-right: 25px;
+	margin-left:25px;
+	margin-bottom: 20px;
+	display:flex;
+	text-align: center;
+	justify-content: center;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
+
+	@media screen and (min-width: 768px) {
+		padding: 15px;
+		border: 2px solid rgba(0, 0, 0, 0.8);
+	}
   }
 
   & ul {
+	display: inline;
+	
   list-style-type: none;
   padding: 0;
   font-size: 16px;
@@ -67,6 +89,13 @@ export const DeleteMenu = styled.div`
 	color: #7B8AA4;
 	font-weight: 700;
 	letter-spacing: 0.02em;
+
+	@media screen and (min-width: 768px) {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		font-size: 26px;
+		justify-content: center;
+	}
   }
 
   & button {
@@ -113,7 +142,7 @@ export const GithubBtn = styled.span`
 `;
 
 export const SvgGithub = styled.svg`
-margin-top: 6px;
+margin-top: 9px;
 margin-left: 10px;
 	display: flex;
 	fill: #3e4e6c;
