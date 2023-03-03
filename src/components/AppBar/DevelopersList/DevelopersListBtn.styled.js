@@ -47,7 +47,7 @@ export const DeleteMenu = styled.div`
 	font-size: 12px;
     line-height: 12px;
     padding: 25px 0px 16px 0px;
-	height: 300px;
+	height: 280px;
 	width: 750px;
 	top: 150px;
   }
@@ -100,12 +100,12 @@ export const DeleteMenu = styled.div`
 	@media screen and (min-width: 768px) {
 		display: grid;
 		grid-template-columns: auto auto auto;
-		font-size: 16px;
+		font-size: 14px;
 		justify-content: center;
 	}
 
 	@media screen and (min-width: 1024px) {
-		font-size: 26px;
+		font-size: 24px;
 	}
   }
 
