@@ -1,20 +1,36 @@
 import { Done } from "components/Card/Done/Done";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "components/Loader/Loader";
 import { CardGroup } from "./CardGroup";
 import { useGetAllCardsQuery } from "redux/auth/questifyApi";
+import { appState, returnAllCards } from "redux/auth/cardsSelectors";
+import { setAllCards } from "redux/auth/cardsSlice";
 
 export const CardGroupContainer = () => {
+  console.log("odświeżam");
+  console.log(useSelector(returnAllCards));
   const challengeState = useSelector((state) => state.user.challengeFIlter);
 
-  const {
-    data: { cards } = [],
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetAllCardsQuery();
+	
+	
+  //const dispatch = useDispatch();
+//   useEffect(() => {
+//     const Fetch = () => {
+//       const cos = useGetAllCardsQuery();
+//       return cos;
+// 	  };
+// 	  console.log("w useefect");
+// 	  console.log(Fetch);
+// 	  console.log("po useefect");
+//   }, []);
+  // const cards = [
+  //     // { id: 1, title: 'Test Name 1', difficulty: 'Easy', category: 'work', type: 'Task', date: '2023-02-24', time: '14:30' },
+  //     // { id: 2, title: 'Test Name 2', difficulty: 'Normal', category: 'leisure', type: 'Task', date: '2023-02-25', time: '14:30' },
+  //     // { id: 3, title: 'Test Name 3', difficulty: 'Hard', category: 'health', type: 'Challenge', date: '2023-02-23', time: '12:31' },
+  //     // { id: 4, title: 'Test Name 4', difficulty: 'Easy', category: 'stuff', type: 'Task', date: '2023-02-22', time: '14:30' },
+  //     // { id: 5, date: '2023-03-21', title: 'Kaboom', difficulty: 'Hard', category: 'work', type: 'Task' },
+  // ];
 
   let sortedCards = cards;
   if (cards) {
