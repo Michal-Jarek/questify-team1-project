@@ -6,11 +6,8 @@ const cardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
-    setAllCards: (state, { payload }) => {
-      console.log(payload);
-      state.cards = [...payload];
-    },
-    addCard: (state, { payload }) => state.cards.push(payload),
+    setAllCards: (state, { payload }) => payload,
+    addCard: (state, { payload }) => payload,
     deleteCard: (state, { payload }) => initialState,
     challengeToggle: (state, { payload }) => {
       state.challengeFIlter = !state.challengeFIlter;

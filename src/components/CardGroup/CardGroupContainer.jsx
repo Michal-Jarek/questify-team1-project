@@ -8,22 +8,24 @@ import { appState, returnAllCards } from "redux/auth/cardsSelectors";
 import { setAllCards } from "redux/auth/cardsSlice";
 
 export const CardGroupContainer = () => {
+  const response = useSelector(returnAllCards);
+ 
   console.log("odświeżam");
-  console.log(useSelector(returnAllCards));
+  if (response?.status) console.log(response);
+
+  console.log("przed fetch");
   const challengeState = useSelector((state) => state.user.challengeFIlter);
 
-	
-	
   //const dispatch = useDispatch();
-//   useEffect(() => {
-//     const Fetch = () => {
-//       const cos = useGetAllCardsQuery();
-//       return cos;
-// 	  };
-// 	  console.log("w useefect");
-// 	  console.log(Fetch);
-// 	  console.log("po useefect");
-//   }, []);
+  //   useEffect(() => {
+  //     const Fetch = () => {
+  //       const cos = useGetAllCardsQuery();
+  //       return cos;
+  // 	  };
+  // 	  console.log("w useefect");
+  // 	  console.log(Fetch);
+  // 	  console.log("po useefect");
+  //   }, []);
   // const cards = [
   //     // { id: 1, title: 'Test Name 1', difficulty: 'Easy', category: 'work', type: 'Task', date: '2023-02-24', time: '14:30' },
   //     // { id: 2, title: 'Test Name 2', difficulty: 'Normal', category: 'leisure', type: 'Task', date: '2023-02-25', time: '14:30' },

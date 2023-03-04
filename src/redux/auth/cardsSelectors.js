@@ -1,2 +1,3 @@
-export const returnAllCards = state => state.cards;
-export const appState = state => state;
+export const returnAllCards = (state) =>
+  state.questifyApi.queries["getAllCards(undefined)"];
+export const appState = (state) => state;
