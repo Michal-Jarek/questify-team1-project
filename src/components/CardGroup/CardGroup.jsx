@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { QuestList } from '../QuestList/QuestList';
-// import { ReactComponent as ListUp } from './images/btnUp.svg';
-// import { ReactComponent as ListDown } from './images/btnDown.svg';
 import { todayDateInMs, tomorrowDateInMs } from '../Card/helperFunctions/dateAndTime/time';
 import { Div, GroupTitle } from './CardGroup.styled';
 
@@ -21,10 +19,10 @@ export const CardGroup = ({ cards, groupName, hideLabel }) => {
 		if (today(checkedDate)) return 'today';
 		if (tomorrow(checkedDate)) return 'tomorrow';
 		if (checkedDate > tomorrowDateInMs) return 'upcoming';
+
 	};
 
 	const sortByGroup = groupName => {
-		console.log('karty: ', cards);
 		if (challengeState) {
 			return cards.filter(card => card.type === 'Challange');
 		} else {
