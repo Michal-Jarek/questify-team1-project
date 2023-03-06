@@ -128,7 +128,7 @@ export const CloseBtn = styled.button`
 	border: none;
 	cursor: pointer;
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 768px) {
 		margin-right: 0px;
 	}
 `;
@@ -147,7 +147,7 @@ export const GithubBtn = styled.span`
 	background-color: transparent;
 	border: none;
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 768px) {
 		margin-right: 0px;
 	}
 `;
@@ -159,6 +159,20 @@ margin-left: 10px;
 	fill: #3e4e6c;
 	transition: fill 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 	cursor: pointer;
+
+	@media screen and (min-width: 768px) {
+		margin-top: 4px;
+		width: 22px;
+		height: 22px;
+
+	}
+
+	@media screen and (min-width: 1024px) {
+		margin-top: 12px;
+		width: 25px;
+		height: 25px;
+
+	}
 
     
     &:hover {
