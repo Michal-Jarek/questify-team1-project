@@ -4,9 +4,15 @@ import { useSelector } from "react-redux";
 import { Loader } from "components/Loader/Loader";
 import { CardGroup } from "./CardGroup";
 import { useGetAllCardsQuery } from "redux/auth/questifyApi";
+import { returnNewCard } from "redux/auth/cardsSelectors";
 
 export const CardGroupContainer = () => {
   const challengeState = useSelector((state) => state.user.challengeFIlter);
+  
+  const newCard = [useSelector(returnNewCard)];
+
+
+
 
   const {
     data: { cards } = [],
@@ -26,6 +32,8 @@ export const CardGroupContainer = () => {
   }
 
   const renderView = () => {
+
+
     if (isLoading) {
       <Loader>...</Loader>;
     } else if (isSuccess) {
@@ -34,7 +42,7 @@ export const CardGroupContainer = () => {
           {!challengeState ? (
             <>
               <CardGroup
-                cards={sortedCards}
+                cards={newCard}
                 groupName="create new card"
                 hideLabel={false}
               />

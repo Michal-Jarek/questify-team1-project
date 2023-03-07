@@ -42,8 +42,8 @@ export const questifyApi = createApi({
     getAllCards: builder.query({
       query: () => "/card",
       providesTags: (result, error, arg) => {
-        console.log(error);
-        if (error?.status === "401") return Cookies.remove("token");
+        console.log(error?.status);
+        if (toString(error?.status) === "401") return Cookies.remove("token");
         if (error) return console.log(error.data);
         else
           return result
@@ -79,7 +79,7 @@ export const questifyApi = createApi({
         url: `/card/${cardId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Auth", "Card"],
+      invalidatesTags: ["Card"],
     }),
   }),
 });

@@ -4,7 +4,7 @@ import tokenSlice from "./auth/tokenSlice.jsx";
 import userSlice from "./auth/userSlice.jsx";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore, PERSIST } from "redux-persist";
-import cardsSlice from "./auth/cardsSlice";
+import cardSlice from "./auth/cardSlice";
 
 const persistConfig = {
   key: "user",
@@ -19,7 +19,7 @@ export const store = configureStore({
     [questifyApi.reducerPath]: questifyApi.reducer,
     user: persistedUserSlice,
     token: tokenSlice,
-    cards: cardsSlice,
+    card: cardSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

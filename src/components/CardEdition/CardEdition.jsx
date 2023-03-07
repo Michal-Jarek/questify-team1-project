@@ -8,6 +8,7 @@ import { SelectionMenu } from "../CardEdition/SelectionMenu/SelectionMenu";
 import {
   useEditCardMutation,
   useDeleteCardMutation,
+  useCreateCardMutation,
 } from "../../redux/auth/questifyApi";
 import {
   separateDate,
@@ -28,6 +29,7 @@ export const CardEdition = ({
   cardCategory,
   onCancel,
 }) => {
+  const [addCard] = useCreateCardMutation();
   const [editCard] = useEditCardMutation();
   const [deleteCard] = useDeleteCardMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,6 +37,7 @@ export const CardEdition = ({
   const [type] = useState(cardType);
   const [datePicker, setDatePicker] = useState(dayjs(cardTime));
   const [isError, setIsError] = useState("");
+  console.log(cardId);
 
   const {
     anchorDifficulty,
@@ -65,19 +68,24 @@ export const CardEdition = ({
     const cardCategory = capitalize(selectedCategory);
     const date = separateDate(datePicker);
     const time = separateTime(datePicker);
+    
     const payload = {
-      body: {difficulty: selectedDifficulty.toLowerCase(),
-      type: cardType.toLowerCase(),
-      title: cardTitle,
-      date: date,
-      time: time,
-        category: cardCategory.toLowerCase()
+      body: {
+        difficulty: selectedDifficulty.toLowerCase(),
+        type: cardType.toLowerCase(),
+        title: cardTitle,
+        date: date,
+        time: time,
+        category: cardCategory.toLowerCase(),
       },
-      id: cardId, 
     };
-
+if (!cardId === "new") payload.id = cardId;
+console.log()
     const isCardValid = (payload) => {
-      editCard(payload);
+      if (payload.id) editCard(payload);
+      if (!payload.id) addCard(payload);
+      console.log(Boolean(payload.id));
+
       setTitle("");
       onCancel();
     };
