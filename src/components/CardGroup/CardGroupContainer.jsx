@@ -9,7 +9,7 @@ import { setAllCards } from "redux/auth/cardsSlice";
 
 export const CardGroupContainer = () => {
   const response = useSelector(returnAllCards);
- 
+
   console.log("odświeżam");
   if (response?.status) console.log(response);
 
@@ -43,6 +43,8 @@ export const CardGroupContainer = () => {
     });
   }
   console.log(useGetAllCardsQuery());
+  console.log(useGetAllCardsQuery());
+  console.log(cards);
   console.log(cards);
   const renderView = () => {
     if (isLoading) {
