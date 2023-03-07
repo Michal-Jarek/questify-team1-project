@@ -1,13 +1,18 @@
 import "./App.css";
-// import { CardGroup } from './CardGroup/CardGroup';
 import Dashboard from "pages/Dashboard/Dashboard";
+import { returnAllCards } from "redux/auth/cardsSelectors";
+import { useSelector } from "react-redux";
 
-// import { Router } from "../utils/router/Router";
+const App = () => {
+  console.log("W app");
+ // console.log(useSelector(returnAllCards));
+  console.log("Po app");
 
-const App = () => (
-	<div className="App">
-		<Dashboard />
-	</div>
-);
+  return (
+    <div className="App">
+      <Dashboard />
+    </div>
+  );
+};
 
 export default App;

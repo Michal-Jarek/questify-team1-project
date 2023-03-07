@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import Cookies from "js-cookie";
 
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
@@ -40,7 +41,15 @@ export const questifyApi = createApi({
     }),
     getAllCards: builder.query({
       query: () => "/card",
-      providesTags: ["Auth", "Card"],
+      providesTags: (result, error, arg) => {
+        console.log(error);
+        if (error?.status === "401") return Cookies.remove("token");
+        if (error) return console.log(error.data);
+        else
+          return result
+            ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
+            : ["Card"];
+      },
     }),
     createCard: builder.mutation({
       query: (cardData) => ({
@@ -53,24 +62,24 @@ export const questifyApi = createApi({
     editCard: builder.mutation({
       query: (cardData) => ({
         url: `/card/${cardData.id}`,
-        method: 'PATCH',
+        method: "PATCH",
         body: cardData.body,
       }),
-      invalidatesTags: ['Auth', 'Card'],
+      invalidatesTags: ["Auth", "Card"],
     }),
     completeCard: builder.mutation({
       query: (cardId) => ({
         url: `/card/${cardId}/complete`,
-        method: 'PATCH',
+        method: "PATCH",
       }),
-      invalidatesTags: ['Auth', 'Card'],
+      invalidatesTags: ["Auth", "Card"],
     }),
     deleteCard: builder.mutation({
       query: (cardId) => ({
         url: `/card/${cardId}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Card'],
+      invalidatesTags: ["Auth", "Card"],
     }),
   }),
 });
@@ -81,7 +90,7 @@ export const {
   useLogoutMutation,
   useGetAllCardsQuery,
   useCreateCardMutation,
-  
+
   useEditCardMutation,
   useCompleteCardMutation,
   useDeleteCardMutation,
