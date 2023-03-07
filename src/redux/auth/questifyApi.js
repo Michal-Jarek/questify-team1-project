@@ -1,13 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-// const providesList = (resultsWithIds, tagType) => {
-//   return resultsWithIds
-//     ? [
-//         { type: tagType, id: 'LIST' },
-//         ...resultsWithIds.map(({ id }) => ({ type: tagType, id })),
-//       ]
-//     : [{ type: tagType, id: 'LIST' }]
-// }
+import Cookies from "js-cookie";
 
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
@@ -50,14 +42,13 @@ export const questifyApi = createApi({
     getAllCards: builder.query({
       query: () => "/card",
       providesTags: (result, error, arg) => {
-        console.log([
-          ...result.cards.map(({ _id }) => ({ type: "Card", id: _id })),
-
-          
-        ]);
-        return result
-          ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
-          : ["Card"];
+        console.log(error);
+        if (error?.status === "401") return Cookies.remove("token");
+        if (error) return console.log(error.data);
+        else
+          return result
+            ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
+            : ["Card"];
       },
     }),
     createCard: builder.mutation({
@@ -66,10 +57,7 @@ export const questifyApi = createApi({
         method: "POST",
         body: cardData,
       }),
-      invalidatesTags: (result, error, arg) => {
-        console.log({ type: "Card", id: arg });
-        return [{ type: "Card", id: arg._id }];
-      },
+      invalidatesTags: ["Auth", "Card"],
     }),
     editCard: builder.mutation({
       query: (cardData) => ({
@@ -77,7 +65,7 @@ export const questifyApi = createApi({
         method: "PATCH",
         body: cardData.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: "Card", id: arg }],
+      invalidatesTags: ["Auth", "Card"],
     }),
     completeCard: builder.mutation({
       query: (cardId) => ({
@@ -91,10 +79,7 @@ export const questifyApi = createApi({
         url: `/card/${cardId}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, arg) => {
-        console.log({ type: "Card", id: arg });
-        return [{ type: "Card", id: arg._id }];
-      },
+      invalidatesTags: ["Auth", "Card"],
     }),
   }),
 });
