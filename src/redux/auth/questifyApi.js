@@ -1,5 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+// const providesList = (resultsWithIds, tagType) => {
+//   return resultsWithIds
+//     ? [
+//         { type: tagType, id: 'LIST' },
+//         ...resultsWithIds.map(({ id }) => ({ type: tagType, id })),
+//       ]
+//     : [{ type: tagType, id: 'LIST' }]
+// }
+
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
   baseQuery: fetchBaseQuery({
@@ -40,7 +49,16 @@ export const questifyApi = createApi({
     }),
     getAllCards: builder.query({
       query: () => "/card",
-      providesTags: ["Auth", "Card"],
+      providesTags: (result, error, arg) => {
+        console.log([
+          ...result.cards.map(({ _id }) => ({ type: "Card", id: _id })),
+
+          
+        ]);
+        return result
+          ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
+          : ["Card"];
+      },
     }),
     createCard: builder.mutation({
       query: (cardData) => ({
@@ -48,29 +66,35 @@ export const questifyApi = createApi({
         method: "POST",
         body: cardData,
       }),
-      invalidatesTags: ["Auth", "Card"],
+      invalidatesTags: (result, error, arg) => {
+        console.log({ type: "Card", id: arg });
+        return [{ type: "Card", id: arg._id }];
+      },
     }),
     editCard: builder.mutation({
       query: (cardData) => ({
         url: `/card/${cardData.id}`,
-        method: 'PATCH',
+        method: "PATCH",
         body: cardData.body,
       }),
-      invalidatesTags: ['Auth', 'Card'],
+      invalidatesTags: (result, error, arg) => [{ type: "Card", id: arg }],
     }),
     completeCard: builder.mutation({
       query: (cardId) => ({
         url: `/card/${cardId}/complete`,
-        method: 'PATCH',
+        method: "PATCH",
       }),
-      invalidatesTags: ['Auth', 'Card'],
+      invalidatesTags: ["Auth", "Card"],
     }),
     deleteCard: builder.mutation({
       query: (cardId) => ({
         url: `/card/${cardId}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Card'],
+      invalidatesTags: (result, error, arg) => {
+        console.log({ type: "Card", id: arg });
+        return [{ type: "Card", id: arg._id }];
+      },
     }),
   }),
 });
@@ -81,7 +105,7 @@ export const {
   useLogoutMutation,
   useGetAllCardsQuery,
   useCreateCardMutation,
-  
+
   useEditCardMutation,
   useCompleteCardMutation,
   useDeleteCardMutation,

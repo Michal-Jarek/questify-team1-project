@@ -19,9 +19,11 @@ const newTask = () => {
 };
 
 const NewTaskBtn = () => {
+
 	const [addCard] = useCreateCardMutation();
 
-	const handleAdd = () => {
+	const handleAdd = e => {
+		e.preventDefault(); e.stopPropagation();
 		const payload = newTask();
 		return addCard(payload);
 	};
