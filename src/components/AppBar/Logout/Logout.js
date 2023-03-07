@@ -11,8 +11,7 @@ export const Logout = () => {
   const dispatch = useDispatch();
 
   const logoutUser = () => {
-    console.log("Logout");
-    const token = Cookies.get("token");
+     const token = Cookies.get("token");
     dispatch(deleteToken(token));
     Notiflix.Notify.success("Logged out of Questify");
     return redirect("/");
