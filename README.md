@@ -9,19 +9,19 @@ This is a server project that allows users to authenticate and authorize themsel
 ## How to use 🎯
 
 1. Register:
-➡️
+The first time you start the application, you must register. To do this, click "sign up", enter your email and password and click button "go".
 
 2. Login:
-➡️
+Once you have your account, log in using your email and password. After logging in, the view will change to your individual dashboard.
 
 3. Creating new task:
-➡️
+To add a new task or challenge, click the appropriate button. A new tab will be added to your panel. Then set the details of the task: title, date, category, difficulty level. Confirm at the end.
 
 4. Making task done:
-➡️
+To complete the task, click the button in the upper right corner. The tab will rotate and click the "continue" button. Confirm your choose and the task will move to the "done area" at the bottom of the page.
 
 5. Deleting task:
-➡️
+To delete a task, click on the tab, and then click the red cross at the bottom of the tab. Confirm your choice on the modal window. The task has been deleted.
 
 ## API documentation 🗃️
 
