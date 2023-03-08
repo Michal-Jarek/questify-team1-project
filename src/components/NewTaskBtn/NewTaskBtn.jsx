@@ -2,33 +2,15 @@ import React from "react";
 import { Div } from "./NewTaskBtn.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewCard } from "redux/auth/cardSlice";
-
-const newTask = () => {
-  const today = new Date();
-  const date = new Date(new Date().setDate(today.getDate()-1))
-    .toJSON()
-    .slice(0, 10);
-  const time = new Date(new Date().setTime(today.getTime() + 36 * Math.pow(10,5)))
-    .toJSON()
-    .slice(11, 16);
-  const newTask = {
-    title: "CREATE NEW QUEST",
-    difficulty: "easy",
-    category: "learning",
-    type: "task",
-    date,
-	  time,
-	_id: "new"
-  };
-  return newTask;
-};
+import { useNewCard } from "utils/hooks/useNewCard";
 
 const NewTaskBtn = () => {
   const dispatch = useDispatch();
+  const payload = useNewCard("task");
 
   const handleAdd = (e) => {
     e.preventDefault();
-    const payload = newTask();
+
     window.scrollTo(0, 0);
     return dispatch(setNewCard(payload));
   };
