@@ -17,6 +17,8 @@ import {
 import { useEditOptions } from "../../utils/hooks/useEditOptions";
 import { difficulty, category } from "../../utils/cardData/cardData";
 import { Card } from "./CardEdition.styled";
+import { useDispatch } from "react-redux";
+import { deleteStateCard } from "redux/auth/cardSlice";
 
 export const CardEdition = ({
   isOpen,
@@ -29,6 +31,7 @@ export const CardEdition = ({
   cardCategory,
   onCancel,
 }) => {
+  const dispatch = useDispatch();
   const [addCard] = useCreateCardMutation();
   const [editCard] = useEditCardMutation();
   const [deleteCard] = useDeleteCardMutation();
@@ -37,7 +40,6 @@ export const CardEdition = ({
   const [type] = useState(cardType);
   const [datePicker, setDatePicker] = useState(dayjs(cardTime));
   const [isError, setIsError] = useState("");
-  console.log(cardId);
 
   const {
     anchorDifficulty,
@@ -68,24 +70,23 @@ export const CardEdition = ({
     const cardCategory = capitalize(selectedCategory);
     const date = separateDate(datePicker);
     const time = separateTime(datePicker);
-    
-    const payload = {
+
+    let payload = {
       body: {
+        title: cardTitle,
         difficulty: selectedDifficulty.toLowerCase(),
         type: cardType.toLowerCase(),
-        title: cardTitle,
         date: date,
         time: time,
         category: cardCategory.toLowerCase(),
       },
+      id: cardId,
     };
-if (!cardId === "new") payload.id = cardId;
-console.log()
+    if (cardId === "new") delete payload.id;
     const isCardValid = (payload) => {
+      dispatch(deleteStateCard());
       if (payload.id) editCard(payload);
-      if (!payload.id) addCard(payload);
-      console.log(Boolean(payload.id));
-
+      if (!payload.id) addCard(payload.body);
       setTitle("");
       onCancel();
     };
@@ -140,7 +141,10 @@ console.log()
         }?`}
         nameOfConfirm="Delete"
         cancelAction={toggleModal}
-        confirmAction={() => deleteCard(cardId)}
+        confirmAction={() => {
+          if (cardId === "new") return dispatch(deleteStateCard());
+          else return deleteCard(cardId);
+        }}
       />
     </Card>
   );

@@ -7,12 +7,10 @@ const cardSlice = createSlice({
   initialState,
   reducers: {
     setNewCard: (state, { payload }) => payload,
-    addCard: (state, { payload }) => payload,
-    deleteCard: (state, { payload }) => initialState,
-  
+    deleteStateCard: (state, { payload }) => initialState,
   },
 });
 
-export const { setNewCard } = cardSlice.actions;
+export const { setNewCard, deleteStateCard } = cardSlice.actions;
 
 export default cardSlice.reducer;
