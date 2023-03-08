@@ -41,7 +41,6 @@ export const Inputs = ({
                     <DateTimePicker 
                         value={dateTimeValue}
                         onChange={(newValue) => { onDateTimeChange(newValue) }}
-                        onError={console.log}
                         ampm={false}
                         minDateTime={dayjs()}
                         inputFormat='YYYY-MM-DD, HH:mm'
