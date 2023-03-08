@@ -10,6 +10,7 @@ export const List = styled.ul`
   list-style-type: none;
   margin-bottom: 30px;
   @media screen and (min-width: 768px) {
-    justify-content: flex-center;
+    justify-content: flex-start;
+    margin-left: 72px;
   }
 `;
