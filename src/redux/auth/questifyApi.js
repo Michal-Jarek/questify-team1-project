@@ -42,13 +42,15 @@ export const questifyApi = createApi({
     getAllCards: builder.query({
       query: () => "/card",
       providesTags: (result, error, arg) => {
-        console.log(error);
-        if (error?.status === "401") return Cookies.remove("token");
-        if (error) return console.log(error.data);
-        else
+        if (error) {
+          console.log(error.data);
+          Cookies.remove("token");
+          window.location.reload();
+        } else {
           return result
             ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
             : ["Card"];
+        }
       },
     }),
     createCard: builder.mutation({
@@ -79,7 +81,7 @@ export const questifyApi = createApi({
         url: `/card/${cardId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Auth", "Card"],
+      invalidatesTags: ["Card"],
     }),
   }),
 });

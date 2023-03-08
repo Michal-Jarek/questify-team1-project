@@ -8,6 +8,7 @@ import { SelectionMenu } from "../CardEdition/SelectionMenu/SelectionMenu";
 import {
   useEditCardMutation,
   useDeleteCardMutation,
+  useCreateCardMutation,
 } from "../../redux/auth/questifyApi";
 import {
   separateDate,
@@ -16,6 +17,8 @@ import {
 import { useEditOptions } from "../../utils/hooks/useEditOptions";
 import { difficulty, category } from "../../utils/cardData/cardData";
 import { Card } from "./CardEdition.styled";
+import { useDispatch } from "react-redux";
+import { deleteStateCard } from "redux/auth/cardSlice";
 
 export const CardEdition = ({
   isOpen,
@@ -28,6 +31,8 @@ export const CardEdition = ({
   cardCategory,
   onCancel,
 }) => {
+  const dispatch = useDispatch();
+  const [addCard] = useCreateCardMutation();
   const [editCard] = useEditCardMutation();
   const [deleteCard] = useDeleteCardMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,19 +70,23 @@ export const CardEdition = ({
     const cardCategory = capitalize(selectedCategory);
     const date = separateDate(datePicker);
     const time = separateTime(datePicker);
-    const payload = {
-      body: {difficulty: selectedDifficulty.toLowerCase(),
-      type: cardType.toLowerCase(),
-      title: cardTitle,
-      date: date,
-      time: time,
-        category: cardCategory.toLowerCase()
-      },
-      id: cardId, 
-    };
 
+    let payload = {
+      body: {
+        title: cardTitle,
+        difficulty: selectedDifficulty.toLowerCase(),
+        type: cardType.toLowerCase(),
+        date: date,
+        time: time,
+        category: cardCategory.toLowerCase(),
+      },
+      id: cardId,
+    };
+    if (cardId === "new") delete payload.id;
     const isCardValid = (payload) => {
-      editCard(payload);
+      dispatch(deleteStateCard());
+      if (payload.id) editCard(payload);
+      if (!payload.id) addCard(payload.body);
       setTitle("");
       onCancel();
     };
@@ -132,7 +141,10 @@ export const CardEdition = ({
         }?`}
         nameOfConfirm="Delete"
         cancelAction={toggleModal}
-        confirmAction={() => deleteCard(cardId)}
+        confirmAction={() => {
+          if (cardId === "new") return dispatch(deleteStateCard());
+          else return deleteCard(cardId);
+        }}
       />
     </Card>
   );
