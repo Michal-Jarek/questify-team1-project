@@ -11,7 +11,10 @@ const NewTaskBtn = () => {
   const handleAdd = (e) => {
     e.preventDefault();
 
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     return dispatch(setNewCard(payload));
   };
 
