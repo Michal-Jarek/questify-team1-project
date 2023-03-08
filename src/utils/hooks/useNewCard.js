@@ -1,5 +1,4 @@
 export const useNewCard = (type) => {
-    console.log(type);
   const today = new Date();
   const date = new Date(new Date().setDate(today.getDate()))
     .toJSON()
@@ -18,6 +17,5 @@ export const useNewCard = (type) => {
     time,
     _id: "new",
     };
-    console.log(newTask);
   return newTask;
 };
