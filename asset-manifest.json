@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/questify-team1-project/static/css/main.4d88a4ba.css",
-    "main.js": "/questify-team1-project/static/js/main.a95547fe.js",
+    "main.js": "/questify-team1-project/static/js/main.220401be.js",
     "static/js/321.c14a59f0.chunk.js": "/questify-team1-project/static/js/321.c14a59f0.chunk.js",
     "static/js/133.f0fbf4b9.chunk.js": "/questify-team1-project/static/js/133.f0fbf4b9.chunk.js",
     "static/media/up.svg": "/questify-team1-project/static/media/up.06796166e642951c786d9864758ee871.svg",
@@ -27,12 +27,12 @@
     "static/media/done.svg": "/questify-team1-project/static/media/done.0591f7cc7f5b7e3d0f3fea715984f1d5.svg",
     "static/media/line.svg": "/questify-team1-project/static/media/line.b9a61d0103b76fabfdad2add3fa54b5f.svg",
     "main.4d88a4ba.css.map": "/questify-team1-project/static/css/main.4d88a4ba.css.map",
-    "main.a95547fe.js.map": "/questify-team1-project/static/js/main.a95547fe.js.map",
+    "main.220401be.js.map": "/questify-team1-project/static/js/main.220401be.js.map",
     "321.c14a59f0.chunk.js.map": "/questify-team1-project/static/js/321.c14a59f0.chunk.js.map",
     "133.f0fbf4b9.chunk.js.map": "/questify-team1-project/static/js/133.f0fbf4b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d88a4ba.css",
-    "static/js/main.a95547fe.js"
+    "static/js/main.220401be.js"
   ]
 }
