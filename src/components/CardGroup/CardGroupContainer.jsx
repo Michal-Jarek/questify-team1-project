@@ -48,17 +48,17 @@ export const CardGroupContainer = () => {
               />
               <CardGroup
                 cards={sortedCards}
-                groupName="past"
-                hideLabel={false}
-              />
-              <CardGroup
-                cards={sortedCards}
                 groupName="today"
                 hideLabel={false}
               />
               <CardGroup
                 cards={sortedCards}
                 groupName="tomorrow"
+                hideLabel={false}
+              />
+              <CardGroup
+                cards={sortedCards}
+                groupName="past"
                 hideLabel={false}
               />
               <CardGroup
