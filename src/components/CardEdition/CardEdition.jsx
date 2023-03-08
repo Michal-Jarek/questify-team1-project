@@ -98,7 +98,7 @@ export const CardEdition = ({
     <Card isOpen={isOpen} cardType={cardChallenge}>
       <Header
         onClick={openDifficultyMenu}
-        difficulty={selectedDifficulty}
+        difficulty={capitalize(selectedDifficulty)}
         cardType={cardChallenge}
       />
       <SelectionMenu

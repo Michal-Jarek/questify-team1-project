@@ -39,7 +39,7 @@ export const Card = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen);
-
+  const newDifficulty = difficulty[0].toUpperCase() + difficulty.substring(1);
   const toggleIsFlipped = () => {
     setIsFlipped((current) => !current);
   };
@@ -77,8 +77,8 @@ export const Card = ({
     <CardContainer cardType={type}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <CardItem cardType={type}>
-          <DifficultyBar cardType={type} difficulty={difficulty}>
-            <p>{difficulty}</p>
+          <DifficultyBar cardType={type} difficulty={newDifficulty}>
+            <p>{newDifficulty}</p>
             {typeIcon}
           </DifficultyBar>
           <TitleDataWrapper cardType={type}>
