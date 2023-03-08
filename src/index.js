@@ -8,8 +8,6 @@ import { store, persistor } from "./redux/store.js";
 import { Router } from "utils/router/Router.js";
 import "./index.scss";
 
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

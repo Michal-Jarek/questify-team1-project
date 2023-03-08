@@ -1,29 +1,45 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Logout } from '../Logout/Logout';
-import icons from '../../../assests/icons/sprite.svg';
-import css from './Navigation.module.css';
-
-import { UserTitle } from '../UserTitle/UserTitle';
+import React from "react";
+import { Logout } from "../Logout/Logout";
+import icons from "../../../assests/icons/sprite.svg";
+import {
+  Nav,
+  Logo,
+  RightMenu,
+  BtnTrophy,
+  SvgTrophy,
+  UserContainer,
+} from "./Navigation.styled";
+import { UserTitle } from "../UserTitle/UserTitle";
+import { DevelopersListBtn } from "../DevelopersList/DevelopersListBtn";
+import { useDispatch } from "react-redux";
+import { useNewCard } from "utils/hooks/useNewCard";
+import { setNewCard } from "redux/auth/cardSlice";
 
 export const Navigation = () => {
-	return (
-		<nav className={css.header}>
-			<NavLink className={css.logo} to='/'>
-				Questify
-			</NavLink>
+  const dispatch = useDispatch();
+  const payload = useNewCard("challenge");
 
-			<div className={css.userContainer}>
-				<UserTitle />
-			</div>
-			<div className={css.rightMenu}>
-				<button className={css.btnTrophy} type='submit'>
-					<svg width='46' height='46' className={css.svgTrophy}>
-						<use xlinkHref={`${icons}#challenge-icon`} />
-					</svg>
-				</button>
-				<Logout />
-			</div>
-		</nav>
-	);
+  const handleAdd = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    return dispatch(setNewCard(payload));
+  };
+
+  return (
+    <Nav>
+      <Logo to="/">Questify</Logo>
+      <UserContainer>
+        <UserTitle />
+      </UserContainer>
+      <RightMenu>
+        <DevelopersListBtn />
+        <BtnTrophy onClick={handleAdd}>
+          <SvgTrophy width="46" height="46">
+            <use xlinkHref={`${icons}#challenge-icon`} />
+          </SvgTrophy>
+        </BtnTrophy>
+        <Logout />
+      </RightMenu>
+    </Nav>
+  );
 };

@@ -16,3 +16,4 @@ export const weekAheadDateInMs = new Date(todayDate).setDate(
   new Date(todayDate).getDate() + 7
 );
 export const weekAheadDate = new Date(weekAheadDateInMs).toLocaleDateString("en-CA"); // YYYY-MM-DD
+

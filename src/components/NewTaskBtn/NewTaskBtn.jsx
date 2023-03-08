@@ -1,12 +1,25 @@
 import React from "react";
 import { Div } from "./NewTaskBtn.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewCard } from "redux/auth/cardSlice";
+import { useNewCard } from "utils/hooks/useNewCard";
 
-const NewTaskBtn = ({ onClick }) => {
-  const isActiveChallenge = useSelector(state => state.user.challengeFIlter)
+const NewTaskBtn = () => {
+  const dispatch = useDispatch();
+  const payload = useNewCard("task");
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+
+    window.scrollTo(0, 0);
+    return dispatch(setNewCard(payload));
+  };
+
+  const isActiveChallenge = useSelector((state) => state.user.challengeFIlter);
+
   return (
     <Div isActiveChallenge={isActiveChallenge}>
-      <button onClick={onClick}>
+      <button onClick={handleAdd}>
         <svg
           width="16"
           height="16"

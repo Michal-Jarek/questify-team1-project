@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import Cookies from "js-cookie";
 
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://questify-backend.goit.global", //adres serwera z  backendem
+    baseUrl:
+      "https://stirring-pavlova-0c5052.netlify.app/.netlify/functions/app",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().token;
       if (token) {
@@ -38,20 +40,45 @@ export const questifyApi = createApi({
       invalidatesTags: ["Auth"],
     }),
     getAllCards: builder.query({
-      query: () => '/card',
-      providesTags: ['Auth', 'Card']
+      query: () => "/card",
+      providesTags: (result, error, arg) => {
+        if (error) {
+          console.log(error.data);
+          Cookies.remove("token");
+          window.location.reload();
+        } else {
+          return result
+            ? [...result.cards.map(({ _id }) => ({ type: "Card", _id }))]
+            : ["Card"];
+        }
+      },
     }),
     createCard: builder.mutation({
       query: (cardData) => ({
-        url: '/card',
-        method: 'POST',
+        url: "/card",
+        method: "POST",
         body: cardData,
       }),
-      invalidatesTags: ['Auth', 'Card'],
+      invalidatesTags: ["Auth", "Card"],
+    }),
+    editCard: builder.mutation({
+      query: (cardData) => ({
+        url: `/card/${cardData.id}`,
+        method: "PATCH",
+        body: cardData.body,
+      }),
+      invalidatesTags: ["Auth", "Card"],
+    }),
+    completeCard: builder.mutation({
+      query: (cardId) => ({
+        url: `/card/${cardId}/complete`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["Auth", "Card"],
     }),
     deleteCard: builder.mutation({
-      query: (id) => ({
-        url: `/card/${id}`,
+      query: (cardId) => ({
+        url: `/card/${cardId}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Card"],
@@ -65,5 +92,8 @@ export const {
   useLogoutMutation,
   useGetAllCardsQuery,
   useCreateCardMutation,
+
+  useEditCardMutation,
+  useCompleteCardMutation,
   useDeleteCardMutation,
 } = questifyApi;

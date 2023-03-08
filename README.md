@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Questify 🎉
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/assests/QuestifyHomePage.png" alt="Questify - home page">
 
-## Available Scripts
+## Info 📖
 
-In the project directory, you can run:
+This is a server project that allows users to authenticate and authorize themselves, giving them the ability to manage custom sets of task cards presented as Quests and Challenges. The project uses REST API architecture, while data is stored in the MongoDB database.
 
-### `npm start`
+## How to use 🎯
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Register:
+The first time you start the application, you must register. To do this, click "sign up", enter your email and password and click button "go".
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Login:
+Once you have your account, log in using your email and password. After logging in, the view will change to your individual dashboard.
 
-### `npm test`
+3. Creating new task:
+To add a new task or challenge, click the appropriate button. A new tab will be added to your panel. Then set the details of the task: title, date, category, difficulty level. Confirm at the end.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Making task done:
+To complete the task, click the button in the upper right corner. The tab will rotate and click the "continue" button. Confirm your choose and the task will move to the "done area" at the bottom of the page.
 
-### `npm run build`
+5. Deleting task:
+To delete a task, click on the tab, and then click the red cross at the bottom of the tab. Confirm your choice on the modal window. The task has been deleted.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API documentation 🗃️
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Questify API](https://questify-backend.goit.global/api-docs/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies 🔧
 
-### `npm run eject`
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Link to working project 🔗
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Questify](https://michal-jarek.github.io/questify-team1-project/login)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Link to backend project 🔗
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[Backend](https://github.com/Michal-Jarek/questify-team1-back-end)
 
-## Learn More
+## Installation 💾
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To install this project, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository.
+2. Install the necessary dependencies.
+3. Run the server.
 
-### Code Splitting
+## Available scripts 📜
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Command         | Description            |
+| --------------- | ---------------------- |
+| `npm run start` | Open local server      |
+| `npm run build` | Create optimized build |
+| `npm run test`  | Run tests              |
 
-### Analyzing the Bundle Size
+## Team - Group 1 💪🫂
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Team Leader 🥷 <br>
+[Michał Jarek](https://github.com/Michal-Jarek)
 
-### Making a Progressive Web App
+Scrum Master 📆<br>
+[Paweł Kłodowski](https://github.com/AngryFace97)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Frontend Developers<br>
+[Michał Jarek](https://github.com/Michal-Jarek)👨‍💻 <br>
+[Marek Kalus](https://github.com/Marektg)👨‍💻 <br>
+[Paweł Kłodowski](https://github.com/AngryFace97)👨‍💻<br>
+[Daria Ośka-Ossowska](https://github.com/DariaOskaOssowska)👩‍💻<br>
+[Piotr Zdebski](https://github.com/piotrekzd)👨‍💻
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Backend Developers<br>
+[Dominika Sosnowska](https://github.com/Dominika1708)👩‍💻
